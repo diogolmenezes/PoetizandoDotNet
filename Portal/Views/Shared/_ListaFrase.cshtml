@@ -1,0 +1,5 @@
+﻿@model IList<Poetizando.Entidade.Frase>
+@foreach (var frase in Model)
+{
+	@Html.Partial("_Frase", frase ); 
+}    

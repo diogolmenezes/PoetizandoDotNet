@@ -1,0 +1,419 @@
+﻿@media screen and (max-device-width: 920px){
+    body {
+        overflow:hidden;
+        overflow-y:scroll;
+        width:auto;
+        margin:auto; 
+    }
+
+    h2 {
+        font-size: 15px;
+    }
+
+    #container, body {
+        width:auto;
+        margin:auto;            
+    }
+
+    header {
+        background:#C51916;
+        background-image:none;
+        position:initial;
+        width:auto;
+        min-width: initial;
+        height:70px;    
+        margin-bottom:190px;
+    }
+
+    header h1 {    
+        margin:auto;
+        display:block;
+        float:none;
+        padding-left:70px;
+        padding-top:10px;
+        text-align:center;
+    }
+
+    header .limite {
+        width:auto;
+        min-width: initial;
+    }
+
+    
+    .busca {
+        display: none;
+    }
+
+    header #menu-principal ul {       
+        position:initial;
+        display:block;
+        float:none;
+        width:auto;
+        background:#C51916;
+    }
+
+    header #menu-principal ul li {
+        display:block;
+        margin:0px;        
+        border-bottom:1px solid #cb2127;
+        padding:3px 5px;
+        text-align:center;
+    }
+
+    header #menu-secundario ul {       
+        position:initial;
+        display:block;
+        float:none;
+        width:auto;
+    }
+
+    header #menu-secundario ul li {
+        display:block;
+        margin:0px;
+        background:#C51916;
+        border-bottom:1px solid #cb2127;
+        padding:3px 5px;
+        text-align:center;      
+    }
+
+    header #menu-secundario ul li a {
+        font-size: 12px;
+    }
+
+    .barra-social {
+        display: none;
+    }
+
+    footer {
+        width:auto;
+        min-width: initial; 
+    }
+
+    footer .limite {
+        width:auto;
+        min-width: initial;
+        height:30px;
+        padding:0px;
+    }
+
+    footer ul {
+        display: none;
+    }
+
+    footer p {
+        width:auto;
+        margin:0px;
+        padding:0px;
+        float:none;
+        text-align:center;
+        padding-top:5px;
+    }
+
+    #destaque {
+        display: none !important;
+    }
+
+    #pagina-inicial #caixa-ultimas-frases {
+        float:none;
+        margin:0px;
+        width: auto;
+    }
+
+    #pagina-inicial #caixa-ultimas-frases .botao,
+    #pagina-inicial #caixa-top-autores .botao {
+        display:none;
+    }
+
+    #pagina-inicial #caixa-ultimas-frases h3 {
+        display: none;
+    }        
+
+    #pagina-inicial #caixa-ultimas-frases nav.paginacao {
+        display: none;
+    }
+
+    #pagina-inicial #caixa-top-autores {
+        margin: 0px;
+        margin-top:15px;
+        float: none;
+        width:auto;
+        padding:0px;
+    }
+
+    #pagina-inicial #caixa-top-autores br {
+        display: none;
+    }
+
+    #pagina-inicial #caixa-top-autores h3 {
+        display:block;
+        background:#cb2127;
+        color:#FFF;
+        font-size:12px;
+        margin-bottom:10px;
+        padding:5px;
+    }
+
+    #pagina-inicial #caixa-videos {        
+        display:none;
+    }
+
+    #pagina-inicial #caixa-blog  *{
+        float:none;
+        margin:0px;
+    }
+
+    #pagina-inicial #caixa-blog {
+         float:none;
+        margin:0px;
+        width: auto;
+    }
+
+    #pagina-inicial #caixa-blog .img {
+        display:none;
+    }
+
+    #pagina-inicial #caixa-blog .texto {
+        float:none;
+        margin:0px;
+        width: auto;
+    }
+
+    #pagina-inicial .anuncio {
+        display: none;
+    }
+
+
+    #pagina-frase nav.ordenacao ul li a {
+        margin:0px;
+        margin-left:5px;
+    }
+
+    #pagina-autor nav.lista-letras {
+        clear:both;
+        display:block;
+        float:none;  
+        margin:0px;        
+    }
+
+    #pagina-autor nav.lista-autores {
+        margin-top:20px;
+        clear:both;
+    }
+
+    #pagina-autor nav.lista-autores ul li {
+        line-height:60px;
+        margin-bottom:5px;
+        border:2px solid #666;
+    }
+
+    #pagina-autor .quebrar-em-colunas {
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count:1;
+    }
+
+    #pagina-frase-autor img.imagem-autor {
+        display: block; 
+        margin:0px;
+        margin-left: auto; 
+        margin-right: auto;   
+        float:none;        
+        margin-bottom:20px;
+        width:auto;
+    }
+
+    #pagina-frase-autor .descricao-autor .informacoes {
+        text-align: center;
+    }
+
+    #pagina-imagens nav#lista-imagens ul li {
+        display:block;
+        margin:0px;
+        text-align:center;
+    }
+
+    #pagina-imagens nav#lista-imagens ul li a img {
+        width:auto;
+        height:auto;
+        margin-bottom:30px;
+        border:3px solid #cb2127;
+    }
+
+    #pagina-detalhe-imagem img {
+        width:280px;
+        height:280px;
+    }
+
+    #pagina-detalhe-frase .imagem img {
+        display:block;
+        margin:auto;
+    }
+
+    #pagina-detalhe-frase h4 {
+        clear:both;
+        margin-bottom:20px;
+        margin-top:30px;
+    }
+
+    #pagina-detalhe-frase blockquote a {
+        font-size:15px !important;
+        line-height:25px;
+    }
+
+    #pagina-detalhe-frase blockquote {
+        padding:0px;
+    }
+
+    #pagina-detalhe-frase #informacao {
+        float:none; 
+        margin:0px;
+        width:auto;
+    }
+
+    #pagina-detalhe-frase #propaganda {
+        display:none;
+    }
+    
+    #pagina-blog h3 span.observacao, #pagina-detalhe-blog h3 span.observacao, #pagina-busca h3 span.observacao
+     {      
+        float:none;
+        display:block;
+    }
+
+    #pagina-detalhe-blog img {
+        width: 280px;
+        height: 280px;
+        margin: auto;
+        display: block;
+        margin-bottom:20px;
+        float:none;
+    }
+
+    #pagina-blog, #pagina-detalhe-blog {
+        font-size: 15px;
+    }
+
+    .formulario label {
+        width:auto;
+        float:none;
+        display:block;
+        clear:both;
+    }
+
+     .formulario p {
+        clear:both;
+        float:none;
+        display:block;
+        height:50px;       
+    }
+     
+    .formulario input[type='text'], .formulario textarea, .formulario select, .formulario span {               
+        max-width:280px;          
+    }
+
+     .formulario select {
+        max-width:160px; 
+    }
+
+    .formulario input[type='checkbox'] {
+        float:none;
+        margin:0px; 
+    }
+
+    .formulario input[type='text'] {
+        margin:0px; 
+        width:280px;
+        display:block;
+        clear:both;
+    }
+
+   
+
+    .fb-like {
+        width: 285px !important; 
+        overflow:hidden;
+    }
+
+    .facebook {
+        padding: 0px;
+        background: none;
+    }
+
+    .frase {
+        padding:20px 0px;
+        width: auto !important;
+        height:auto;
+        margin:0px;
+        float:none;
+        margin-bottom:10px;
+    }
+
+    .frase blockquote {
+        margin-bottom: 15px;
+        background:none;
+        min-height:initial;
+        line-height:28px;
+        padding-left:0;
+        padding-top:0px;
+    }
+
+    .acoes .badge {
+        display:none;
+    }
+
+    .acoes .enviar-corecao {
+        display:block;
+    }
+
+    .frase .acoes .autor img {
+        display: none;
+    }
+
+    .frase div.acoes {
+        width: auto;  
+        margin-bottom:10px;          
+    }
+
+    .frase .acoes ul li {
+        margin-left:10px;
+    }
+
+    .frase .acoes ul li a {
+        display:block;
+        width:20px;
+        height:17px;
+        text-indent:-90000px;
+        overflow:hidden;
+    }
+
+    .frase .acoes ul li.compartilhar a {    
+        background:url(img/btn-compartilhar-mob.png) no-repeat;        
+    }
+
+    .frase .acoes ul li.compartilhar a:hover {    
+        background:url(img/btn-compartilhar-mob.png) no-repeat;
+    }
+
+    .frase .acoes ul li.enviar-correcao a {
+        background:url(img/btn-correcao-mob.png) no-repeat;
+    }
+
+    .frase .acoes ul li.enviar-correcao a:hover {
+        background:url(img/btn-correcao-mob.png) no-repeat;
+    }
+
+
+    .propaganda-horizontal-inferior {
+        display:none;
+    }
+
+    .propaganda-vertical-direita {
+        display:none;
+    }
+
+    .breadcrumb {
+        display: none;
+    }
+
+}
+

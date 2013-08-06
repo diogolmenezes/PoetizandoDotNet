@@ -1,0 +1,106 @@
+﻿@model Poetizando.Entidade.Frase
+@using Poetizando.Negocio
+@{ 
+    ViewBag.FbTitle   = Model.Autor.Nome + ": " + Model.Texto;
+    ViewBag.Keywords = "frase, frases, citações, poesia, poesias, poema, poemas, texto, textos, citacao, verso, versos, palavra, palavras, " + Model.Autor.Nome + "," + Model.Texto;
+    var imagem = (Poetizando.Entidade.Imagem)ViewBag.Imagem;
+
+    if (imagem != null){
+        ViewBag.FbImage = "http://poetizando.com.br" + imagem.ImagemGrande + "?t=123456?";
+    }
+
+    ViewBag.FbDescription = Model.Autor.Nome + ": " + Model.Texto;
+
+    var opcao = @ViewBag.Opcao + "-selecionado";
+}
+@section headScripts {
+    <link rel="stylesheet" href="/content/shadowbox.css"  media="screen" />
+    <script type="text/javascript" src="/scripts/shadowbox.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            Shadowbox.init();
+        });
+    </script>
+}
+@section metaTags {
+    <link rel="canonical" href="http://poetizando.com.br/frase/@Model.Autor.Nome.NomeURL()/@Model.Id"/>
+}
+<section id="pagina-detalhe-frase" class="@opcao">
+
+   
+    <nav class="breadcrumb">
+        <ul>
+            <li><a href="/" title="Volte para a página inicial do Poetizando">inicial</a></li>
+            <li>></li>
+            <li><a href="/frase"  title="Inspire-se vendo muitas frases legais" >frases</a></li>
+        </ul>
+    </nav>
+    
+    <section id="informacao">
+
+        @Html.Partial("_Frase", @Model )
+
+        
+        <nav class="menu">
+            <ul>
+                @if (imagem != null){
+                    <li id="itemmenu-imagem" ><a href="?o=imagem" title="Veja as imagens da frase">imagens</a></li>
+                }
+                @if (Model.PossuiMusica){
+                    <li id="itemmenu-musica"><a href="?o=musica" title="Veja a música da frase">ver música</a></li>
+                }
+                @if (Model.PossuiLivro){
+                    <li id="itemmenu-livro"><a href="?o=livro" title="Veja o livro da frase">ver livro</a></li>
+                }
+            </ul>
+        </nav>        
+
+        @if (imagem != null){
+            var style = (opcao != "imagem-selecionado") ? "display:none;" : "";
+            <section id="imagem-frase" class="palco" style="@style">
+                <h2>Imagens</h2>
+                <p class="imagem">
+                    <a href="@imagem.ImagemGrande" rel="shadowbox" title="@Model.Texto - @Model.Autor.Nome"><img src="@imagem.ImagemPequena" alt="@Model.Texto - @Model.Autor.Nome" title="@Model.Texto - @Model.Autor.Nome"/></a>
+                    clique para ampliar
+                </p>
+            </section>
+        }
+
+        @if (Model.PossuiMusica){
+            var style = (opcao != "musica-selecionado") ? "display:none;" : "";            
+            <section id="musica-frase" class="palco" style="@style" >
+                <h2>Música @Model.Musica.Nome</h2>
+                <article class="video">
+                    <iframe width="300" height="200" src="@Model.Musica.UrlVideo" frameborder="0" allowfullscreen></iframe>
+                    <a href="@Model.Musica.UrlCifra#topo" target="_blank">ver a cifra</a>
+                </article>
+                @if(!String.IsNullOrEmpty(Model.Musica.Letra)){
+                <article class="letra">
+                    @Html.Raw(Model.Musica.Letra)
+                </article>
+                }
+            </section>
+        }
+
+        @if (Model.PossuiLivro){
+            var style = (opcao != "livro-selecionado") ? "display:none;" : "";
+            <section id="livro-frase" class="palco" style="@style">
+                <h2>Livro</h2>           
+            </section>
+         }
+
+     </section>
+
+    <section id="propaganda">
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-8117876802922910";
+        /* Poetizando - Vertical */
+        google_ad_slot = "7333488221";
+        google_ad_width = 120;
+        google_ad_height = 600;
+        //-->
+        </script>
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    </section>
+
+</section>

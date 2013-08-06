@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<!--[if lte IE 7]> <html class="ie7" lang="pt"> <![endif]-->  
+<!--[if IE 8]><html class="ie8" lang="pt"> <![endif]-->  
+<!--[if IE 9]><html class="ie9" lang="pt"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="pt"><!--<![endif]-->  
+    <head>        
+
+        @{ 
+            var fbSiteName = "Poetizando";
+            var fbTitle = String.IsNullOrEmpty(ViewBag.FbTitle) ? "Inspire-se com o Poetizando" : ViewBag.FbTitle;
+            var fbType = "website";
+            var fbDescription = String.IsNullOrEmpty(ViewBag.FbDescription) ? "Poetizando, frases, poesias, texto, vídeos e imagens inspiradoras. Motive-se e divirta-se." : ViewBag.FbDescription;
+            var fbUrl = Request.Url.AbsoluteUri;
+            var fbImage = String.IsNullOrEmpty(ViewBag.FbImage) ? "http://poetizando.com.br/content/img/img-facebook.png?t=12345?" : ViewBag.FbImage;
+            var keywords = String.IsNullOrEmpty(ViewBag.Keywords) ? "Poesia, Frases, Citações, Vídeos, Motivação, Poetizando, Poema, Inspiração, Textos" : ViewBag.Keywords;            
+         }
+
+        <title>@fbTitle</title>        
+        <meta charset="utf-8" />
+        <meta property="og:site_name" content="@fbSiteName" />
+        <meta property="og:title" content="@fbTitle" />
+        <meta property="og:type" content="@fbType" />
+        <meta property="og:description" content="@fbDescription" />
+        <meta property="og:url" content="@fbUrl" />
+        <meta property="og:image" content="@fbImage" />
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+        <meta name="description" content="@fbDescription">
+        <meta name="keywords" content="@keywords"/>    
+        @RenderSection("metaTags", required: false) 
+        <link href="~/content/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"/>                
+        <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>        
+        <link href='http://fonts.googleapis.com/css?family=ABeeZee:400,400italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Noto+Serif' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/content/Site.css"  media="screen" />
+        <link rel="stylesheet" type="text/css" href="/content/movel.css" media="screen and (max-width:920px)" />
+        <script type="text/javascript" src="/scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/scripts/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="/scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script type="text/javascript" src="/scripts/modernizr-2.5.3.js"></script>
+        <script type="text/javascript" src="/scripts/poetizando/geral.js"></script>  
+        @RenderSection("headScripts", required: false)     
+    </head>
+    <body class="@ViewBag.PaginaInicial" >            
+        <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=420733714623225";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>      
+              
+        <header>
+            <div class="limite">
+                <h1><a href="/" title="Voltar para a página inicial">poetizando - <span>inspire-se</span></a></h1>
+                <fieldset class="busca">                    
+                    <input type="search" name="txtBusca" id="txtBusca"/>
+                </fieldset>
+                <nav id="menu-principal">
+                    <ul>
+                        <li><a href="/frase?o=popularidade" title="Inspire-se vendo muitas frases legais" accesskey="f">Frases</a></li>
+                        <li><a href="/autor/letra/a" title="Conheça ótimas citações de diversos autores" accesskey="a">Autores</a></li>
+                        <li><a href="/video" title="Motive-se vendo incríveis vídeos" accesskey="v">Vídeos</a></li>
+                        <li><a href="/imagem" title="Inspire-se vendo maravilhosas imagens" accesskey="i">Imagens</a></li>
+                        <li><a href="/blog" title="Divirta-se lendo textos inacreditáveis" accesskey="b">Blog</a></li>
+                        <li><a href="/frase/criar" title="Colabore com o crescimento do Poetizando, envie uma frase." accesskey="n">+ Enviar uma frase</a></li>                        
+                    </ul>
+                </nav>
+                <nav id="menu-secundario">
+                    <ul>                        
+                        <li><a href="/sobre" title="Saiba mais sobre o Poetizando" accesskey="s">Sobre</a></li>
+                        <li><a href="http://facebook.com/poetizandooficial" target="_blank" class="" title="Acompanhe o Poetizando no facebook" accesskey="k">Facebook</a></li>
+                        <li><a href="/contato" title="Suas dúvidas, criticas e sugestões são bem vindas. O Poetizando é feito para você!" accesskey="c">Contato</a></li>                        
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section id="destaque" style="display:none;">
+            <div id="texto">
+                <div class="autor"><a href="/autor/frases/albert-einstein" title="Conheça as citações de Albert Einstein">Albert Einstein</a></div>
+            </div>
+        </section>
+
+        <div id="container">  
+            <section id="conteudo">
+                @RenderBody()
+            </section>                                   
+        </div>
+        <footer>
+            <div class="limite">
+                <nav id="menu-social">
+                    <ul>        
+                        <li><a class="facebook" href="https://www.facebook.com/poetizandooficial" title="Acompanhe o Poetizando no facebook" target="_blank">no facebook</a></li>
+                    </ul>
+                </nav>
+                <p>poetizando é um projeto de <a href="/autor/frases/diogo-menezes" title="Saiba mais sobre o criador do Poetizando - Diogo Menezes" >Diogo Menezes</a></p>
+                <nav id="menu">
+                    <ul>
+                        <li><a href="/sobre" title="Saiba mais sobre o Poetizando">sobre</a></li>
+                        <li><a href="/contato" title="Suas dúvidas, criticas e sugestões são bem vindas. O Poetizando é feito para você!" accesskey="c">contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>       
+
+        <div class="fb-like-box barra-social">
+            <div class="fb">
+		        <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com/poetizandooficial&amp;send=false&amp;layout=box_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            </div>
+            <div class="plus">
+                <a href="//plus.google.com/111643951767073332882?prsrc=3" rel="publisher" style="text-decoration:none;">
+                <img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:32px;height:32px;"/></a> 
+            </div>
+	    </div>
+
+
+        <div id="voltar-para-topo"></div>
+
+        @RenderSection("scripts", required: false)
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-39512668-1']);
+            _gaq.push(['_setDomainName', 'poetizando.com.br']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+
+    </body>    
+</html>

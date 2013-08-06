@@ -2,8 +2,12 @@
 _layout/
 _banco/
 _ideias/
-_Administracao/
+Administracao/
 _certificados-de-genuinidade/
+Portal/Content/img/frases/
+Portal/Content/themes/
+Portal/Content/img/autores/
+Portal/Content/img/blog/
 *.config
 
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)

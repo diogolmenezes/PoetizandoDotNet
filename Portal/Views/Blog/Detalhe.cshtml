@@ -1,0 +1,45 @@
+﻿@model Poetizando.Entidade.Texto
+@using Poetizando.Negocio
+@{ ViewBag.FbTitle = Model.Titulo; }
+@{ ViewBag.FbImage = "http://poetizando.com.br/content/img/blog/" + @Model.Imagem + "?t=123456?"; }
+@{ ViewBag.FbDescription = Model.Descricao.Replace("<p>","").Replace("</p>","") + " - escrito por " + Model.Autor.Nome; }
+@{ ViewBag.Keywords = "texto, blog, cronica, conto, poesia, " + Model.Descricao.Replace("<p>", "").Replace("</p>", "") + "," + Model.Autor.Nome + "," + Model.Titulo; }
+<section id="pagina-detalhe-blog">
+    
+    <nav class="breadcrumb">
+        <ul>
+            <li><a href="/" title="Volte para a página inicial do poetizando">inicial</a></li>
+            <li>></li>
+            <li><a href="/blog"  title="inspire-se vendo muitos textos legais" >blog</a></li>
+            <li>></li>
+            <li><a href="/blog/post/@Model.Titulo.NomeURL()"  title="@Model.Autor.Nome: @Model.Titulo" >@Model.Titulo</a></li>
+        </ul>
+    </nav>
+
+   <article>
+        <h3><a href="/blog/post/@Model.Titulo.NomeURL()">@Model.Titulo</a><span class="observacao"> por <span class="autor"><a href="/autor/frases/@Model.Autor.Nome.NomeURL()" title="conheça as frases de @Model.Autor.Nome.NomeURL()" rel="author" class="autor">@Model.Autor.Nome</a></span> em <span class="data">@Model.DataCriacao.ToString("dd/MM/yyyy")</span></span></h3>
+        <img src="/content/img/blog/@Model.Imagem" />
+        @Html.Raw(Model.Post)
+       <br /><br />
+        <div class="fb-like" data-href="http://poetizando.com.br/blog/post/@Model.Titulo.NomeURL()" data-send="true" data-width="450" data-show-faces="true"></div>
+   </article>
+
+
+    <section class="propaganda-horizontal-inferior">
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-8117876802922910";
+        /* poetizando-cabecalho */
+        google_ad_slot = "9501552220";
+        google_ad_width = 728;
+        google_ad_height = 90;
+        //-->
+        </script>
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    </section>
+
+    <br /><br class="clear" />
+
+    <h4>Comentários</h4><br />
+
+    <div class="fb-comments" data-href="http://poetizando.com.br/blog/post/@Model.Titulo.NomeURL()" data-width="900" data-num-posts="10"></div>
+</section>

@@ -1,0 +1,25 @@
+﻿@model IList<Poetizando.Entidade.Imagem>
+@{ ViewBag.FbTitle = "Imagens"; }
+@section headScripts{<script type="text/javascript" src="/scripts/poetizando/pagina-imagem.js"></script>}
+
+<section id="pagina-imagens">   
+
+    <nav class="breadcrumb">
+        <ul>
+            <li><a href="/" title="Volte para a página inicial do Poetizando">inicial</a></li>
+            <li>></li>
+            <li><a href="/imagem"  title="Inspire-se vendo ótimas imagens" >imagens</a></li>
+        </ul>
+    </nav>
+
+    <h2>Imagens</h2>
+
+    <p>Muitas vezes, uma imagem vale mais que mil palavras. Inspire-se e compatilhe com os amigos.</p>
+
+    <nav id="lista-imagens">
+        <ul>
+            @Html.Partial("_ListaImagem", Model)
+        </ul>
+    </nav>
+
+</section>

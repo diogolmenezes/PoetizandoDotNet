@@ -1,0 +1,7 @@
+﻿@model IList<Poetizando.Entidade.Imagem>
+@using Poetizando.Negocio
+
+@foreach (var imagem in Model)
+{
+    <li><a href="/frase/@imagem.Frase.Autor.Nome.NomeURL()/@imagem.Frase.Id" title="@imagem.Frase.Texto - @imagem.Frase.Autor.Nome"><img src="@imagem.ImagemPequena" alt="@imagem.Frase.Texto - @imagem.Frase.Autor.Nome" title="@imagem.Frase.Texto - @imagem.Frase.Autor.Nome" /></a></li>
+}

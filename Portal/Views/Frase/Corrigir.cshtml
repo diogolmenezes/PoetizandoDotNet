@@ -1,0 +1,61 @@
+﻿@model Poetizando.Entidade.Frase
+@section headScripts{<script type="text/javascript" src="/scripts/poetizando/pagina-frase-corrigir.js"></script>}
+@{ ViewBag.Title = "- Correção de frase"; }
+<section id="pagina-corrigir-frase">
+
+    <nav class="breadcrumb">
+        <ul>
+            <li><a href="/" title="Volte para a página inicial do Poetizando">inicial</a></li>
+            <li>></li>
+            <li><a href="/frase"  title="inspire-se vendo muitas frases legais" >frases</a></li>
+        </ul>
+    </nav>
+
+    <h2>Corrigir frase</h2>
+
+    <p>Você acredita que esta frase pode estar errada, repetida ? Por favor, nos envie sua sugestão de correção. Nós analisaremos e corrigiremos o mais rápido possível.</p>
+
+    @using (Html.BeginForm("Corrigir", "Frase", FormMethod.Post))
+    {   
+        <fieldset class="formulario">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "Corriga os erros e tente novamente.")
+            
+            <p>
+                <label for="checkbox">Remover: </label>@Html.CheckBox("chkImpropria") esta frase é imprópria ou repetida e deve ser removida do site.
+                @Html.HiddenFor(x => x.Id)
+                @Html.Hidden("TextoAntigo", Model.Texto)
+            </p>
+
+            <div id="impropria">
+                <p>
+                    <label for="frase">Frase:</label>@Html.TextAreaFor(m => m.Texto, new { MaxLenght = 1000, cols = 50, rows = 5, title= "Insira a frase" }) @Html.ValidationMessageFor(m => m.Texto)                
+                </p>
+                <br /><br /><br />
+                <p>
+                    <label for="ddlAutor">Autor: </label>@Html.DropDownList("ddlAutor", ((IList<Poetizando.Entidade.Autor>)ViewBag.Autores).Select(o => new SelectListItem() { Text = o.Nome, Value = o.Id, Selected = (o.Id.Equals(Model.Autor.Id)) }), "escolha um autor")
+                    <input type="checkbox" id="chkOutroAutor" /> outro autor
+                </p>
+
+                <p id="outro-autor" style="display:none;">
+                    <label for="txtOutroAutor">Outro autor: </label>@Html.TextBox("txtOutroAutor")
+                </p>
+
+                <p>
+                    <label for="ddlCategoria">Categoria: </label>@Html.DropDownList("ddlCategoria", ((IList<Poetizando.Entidade.Tag>)ViewBag.Categorias).Select(o => new SelectListItem() { Text = o.Nome, Value = o.Id, Selected = Model.TagFrases.Select(x=> x.Tag.Id).Contains(o.Id) }), "escolha uma categoria")
+                    <input type="checkbox" id="chkOutraCategoria" /> outra categoria
+                </p>
+
+                <p id="outra-categoria" style="display:none;">
+                    <label for="txtOutraCategoria">Outra categoria: </label>@Html.TextBox("txtOutraCategoria")
+                </p>
+
+                <p>
+                    <label for="txtEmail">E-mail de contato: </label>@Html.TextBox("txtEmail")
+                </p>
+            </div>
+
+            <label for="btn">&nbsp;</label><input type="submit" value="enviar" title="Enviar" />
+        </fieldset>    
+    }
+</section>

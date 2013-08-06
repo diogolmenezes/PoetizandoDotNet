@@ -1,0 +1,58 @@
+﻿@model Poetizando.Entidade.Imagem
+@using Poetizando.Negocio
+@{ 
+    ViewBag.FbTitle = Model.Frase.Autor.Nome + ": " +  Model.Frase.Texto + " - Imagem";
+    ViewBag.FbImage = "http://poetizando.com.br" + @Model.ImagemGrande + "?t=123456?";
+    ViewBag.FbDescription = Model.Frase.Autor.Nome + ": " + Model.Frase.Texto;
+    ViewBag.Keywords = "imagem, foto, fotos, imagens, frase, frases, poema, poemas, poesia, poesias, texto, textos, citações, citacao, verso, versos, palavra, palavras, " + Model.Frase.Autor.Nome + "," + Model.Frase.Texto; 
+}
+@section metaTags {
+    <link rel="canonical" href="http://poetizando.com.br/frase/@Model.Frase.Autor.Nome.NomeURL()/@Model.Frase.Id"/>
+}
+
+<section id="pagina-detalhe-imagem">   
+
+    <nav class="breadcrumb">
+        <ul>
+            <li><a href="/" title="Volte para a página inicial do Poetizando">inicial</a></li>
+            <li>></li>
+            <li><a href="/imagem"  title="Inspire-se vendo ótimas imagens" >imagens</a></li>
+        </ul>
+    </nav>
+
+
+    @if (Model.Frase != null)
+    {
+        @Html.Partial("_Frase", Model.Frase);        
+        <br />
+    }
+
+    <img src="@Model.ImagemGrande" class="imagem" alt="@Model.Frase.Texto - @Model.Frase.Autor.Nome" title="@Model.Frase.Texto - @Model.Frase.Autor.Nome" />
+
+    <br /><br />
+
+    <div class="fb-like" data-href="http://poetizando.com.br/imagem/detalhe/@Model.Id" data-send="true" data-width="450" data-show-faces="true"></div>
+
+
+    <section class="propaganda-horizontal-inferior">
+        <hr />
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-8117876802922910";
+        /* poetizando-cabecalho */
+        google_ad_slot = "9501552220";
+        google_ad_width = 728;
+        google_ad_height = 90;
+        //-->
+        </script>
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    </section>
+
+    <br /><br /><br />
+
+    <h4>Comentários</h4>
+    
+    <br />
+    
+    <div class="fb-comments" data-href="http://poetizando.com.br/imagem/detalhe/@Model.Id" data-width="900" data-num-posts="10"></div>
+
+</section>

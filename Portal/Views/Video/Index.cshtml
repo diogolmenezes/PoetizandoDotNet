@@ -1,0 +1,43 @@
+﻿@model IList<Poetizando.Entidade.Video>
+@using Poetizando.Negocio
+@{ ViewBag.FbTitle = "Vídeos"; }
+@{ ViewBag.Keywords = "video, filme, curta metragem, curta, videos, motivação, inspiração, sucesso"; }
+@{ var video = (Poetizando.Entidade.Video)ViewBag.Video; }
+
+<section id="pagina-videos">   
+
+    <nav class="breadcrumb">
+        <ul>
+            <li><a href="/" title="Volte para a página inicial do poetizando">inicial</a></li>
+            <li>></li>
+            <li><a href="/video"  title="inspire-se vendo ótimos vídeos" >vídeos</a></li>
+        </ul>
+    </nav>
+
+    <h2>Vídeos</h2>
+
+    <section id="video-destaque" class="video">
+        <article>
+            <iframe width="295" height="244" src="@video.Url" frameborder="0" allowfullscreen></iframe>
+            <h3><a href="/video/detalhe/@video.Titulo.NomeURL()" title="Assista ao vídeo @video.Titulo">@video.Titulo</a></h3>
+            <p>@video.Descricao</p>        
+        </article>
+    </section>
+
+
+    @Html.Partial("_ListaVideo", Model)
+
+
+    <section class="propaganda-horizontal-inferior">
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-8117876802922910";
+        /* poetizando-cabecalho */
+        google_ad_slot = "9501552220";
+        google_ad_width = 728;
+        google_ad_height = 90;
+        //-->
+        </script>
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    </section>
+
+</section>

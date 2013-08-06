@@ -1,0 +1,935 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{54FD2CBB-804D-4045-A851-8FCD8E419B57}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Poetizando.Portal</RootNamespace>
+    <AssemblyName>Poetizando.Portal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataAnnotationsExtensions">
+      <HintPath>..\packages\DataAnnotationsExtensions.1.1.0.0\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions.ClientValidation">
+      <HintPath>..\packages\DataAnnotationsExtensions.MVC3.1.1.0.0\lib\NETFramework40\DataAnnotationsExtensions.ClientValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="DmgTools.Config, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_dlls\DmgTools.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="DmgTools.Log">
+      <HintPath>..\_dlls\DmgTools.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_dlls\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.3.0.20105.1\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.1.0.20105.408\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.2.0.0\lib\NETFramework40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RegisterClientValidationExtensions.cs" />
+    <Compile Include="Controllers\AutorController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\ContatoController.cs" />
+    <Compile Include="Controllers\FraseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImagemController.cs" />
+    <Compile Include="Controllers\SobreController.cs" />
+    <Compile Include="Controllers\VideoController.cs" />
+    <Compile Include="Filters\LoggingFilterAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Helpers.cs" />
+    <Compile Include="Models\Contato.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="apple-touch-icon.png" />
+    <Content Include="Content\img\btn-compartilhar-mob.png" />
+    <Content Include="Content\img\btn-compartilhar-on.png" />
+    <Content Include="Content\img\btn-compartilhar.png" />
+    <Content Include="Content\img\btn-correcao-mob.png" />
+    <Content Include="Content\img\btn-correcao-on.png" />
+    <Content Include="Content\img\btn-correcao.png" />
+    <Content Include="Content\img\close.png" />
+    <Content Include="Content\img\loading.gif" />
+    <Content Include="Content\img\next.png" />
+    <Content Include="Content\img\pause.png" />
+    <Content Include="Content\img\play.png" />
+    <Content Include="Content\img\previous.png" />
+    <Content Include="Content\img\selo-imagem.png" />
+    <Content Include="Content\img\selo-musica.png" />
+    <Content Include="Content\img\selo-oficial.png" />
+    <Content Include="Content\Movel.css" />
+    <Content Include="Content\img\anuncie.png" />
+    <Content Include="Content\img\autores\011ddd75da48415794241f7eac05d284.jpg" />
+    <Content Include="Content\img\autores\01344e011be24798ab1a8d239a668745.jpg" />
+    <Content Include="Content\img\autores\017b5d170315476b827ef426d85802ff.jpg" />
+    <Content Include="Content\img\autores\01e0d20b00c940e3be7c79b80deaf21c.jpg" />
+    <Content Include="Content\img\autores\01f3e3c2b25e45f6b5abbe9e568685ff.jpg" />
+    <Content Include="Content\img\autores\021c6c4a3e97498295c088603a7851e5.jpg" />
+    <Content Include="Content\img\autores\028b284b95384acca06f1eb4a1147c08.jpg" />
+    <Content Include="Content\img\autores\02bb47f02ffc4dbab466450fff886286.jpg" />
+    <Content Include="Content\img\autores\02c78d562b8e4d4d933bdf1389e3fe81.jpg" />
+    <Content Include="Content\img\autores\02f2cbe83f8d48539570740611f3732b.jpg" />
+    <Content Include="Content\img\autores\0305b05a5efe448e9ca20c7688b6b3f7.jpg" />
+    <Content Include="Content\img\autores\0311467dcedc418287826a02e80a22e0.jpg" />
+    <Content Include="Content\img\autores\04112a7cfe854197939c30418d8e7f99.jpg" />
+    <Content Include="Content\img\autores\049d0cfc730d4ee2ac0ee4117b2734c0.jpg" />
+    <Content Include="Content\img\autores\057f445f85ae4dfa8aa8876dc88cac7c.jpg" />
+    <Content Include="Content\img\autores\05ac6d6b4bd341e9b458d41405fccdd5.jpg" />
+    <Content Include="Content\img\autores\05b0de40a67b4f6cb70fbb11cd9acf37.jpg" />
+    <Content Include="Content\img\autores\05d2c04ccf364c099931370775780ada.jpg" />
+    <Content Include="Content\img\autores\05e030e1356c4aeb8d684583c87030e1.jpg" />
+    <Content Include="Content\img\autores\05f5699d459541528a3f3fe1250472df.jpg" />
+    <Content Include="Content\img\autores\05faa39c7e6e47c9a0ff7e7f7b54e2d1.jpg" />
+    <Content Include="Content\img\autores\060e437fe253438fa2049438e75f6d54.jpg" />
+    <Content Include="Content\img\autores\06186799bc9948e8883b340cb993d843.jpg" />
+    <Content Include="Content\img\autores\0629f74b51b14855a6a11f8ede2b01aa.jpg" />
+    <Content Include="Content\img\autores\0652f307cf3a49529d88606df4d14e12.jpg" />
+    <Content Include="Content\img\autores\069d4a5a42594a10850119090675348d.jpg" />
+    <Content Include="Content\img\autores\06e859c30e254455a7b0382fdf72f2d9.jpg" />
+    <Content Include="Content\img\autores\070433f1a2b541cabaff3bf9d260bdd2.jpg" />
+    <Content Include="Content\img\autores\074318e7544b472687b8b591a6956d9a.jpg" />
+    <Content Include="Content\img\autores\07aaa5bf75334ea4bb3391691b8093ab.jpg" />
+    <Content Include="Content\img\autores\08602f918db0467fb7663a011c2a363d.jpg" />
+    <Content Include="Content\img\autores\0873a133c33f458bae84b43406abcf98.jpg" />
+    <Content Include="Content\img\autores\087437439f2a45d5af220cf26f7f1d31.jpg" />
+    <Content Include="Content\img\autores\08a2457f52984ec18ce57a1afb2f10b9.jpg" />
+    <Content Include="Content\img\autores\08c62b6669e94f248a6777079a6b8f99.jpg" />
+    <Content Include="Content\img\autores\08deb781fd9c4ff4896e141c88cd6faa.jpg" />
+    <Content Include="Content\img\autores\0922ee2992b74d948aa3f6293437a91a.jpg" />
+    <Content Include="Content\img\autores\0923436f40764ac1afc8323ffa58f55d.jpg" />
+    <Content Include="Content\img\autores\095dab8258e246cabe8699041260483e.jpg" />
+    <Content Include="Content\img\autores\0978c8c1038a4ff1b5c6872d5dd18c19.jpg" />
+    <Content Include="Content\img\autores\09938ffc4a654a1191d19897fc2dd5bd.jpg" />
+    <Content Include="Content\img\autores\0a1264eaf2bf4ff1ab2f5da14201c272.jpg" />
+    <Content Include="Content\img\autores\0aa784ee4bee40968390c80b37aa1ab7.jpg" />
+    <Content Include="Content\img\autores\0af8ffa9a84d447fa4d3055bfa07e843.jpg" />
+    <Content Include="Content\img\autores\0b0ca84c5cd543058581156bf5955ea5.jpg" />
+    <Content Include="Content\img\autores\0b172ca8207941e19fd0ee3b52fee63b.jpg" />
+    <Content Include="Content\img\autores\0bc412c8a6b84b71baa8d97fb874d5c9.jpg" />
+    <Content Include="Content\img\autores\0c03c83fe82d44feb6f397994bd7144a.jpg" />
+    <Content Include="Content\img\autores\0c9daf8366f94957be1e45b8e2d968b2.jpg" />
+    <Content Include="Content\img\autores\0cafd0c17dfd44689f3cb7b464f6a879.jpg" />
+    <Content Include="Content\img\autores\0d27512e059642b791a25081b28202bc.jpg" />
+    <Content Include="Content\img\autores\0d400661025941bfa11918261d456101.jpg" />
+    <Content Include="Content\img\autores\0d953e4783314f3a9dde566d90f90c70.jpg" />
+    <Content Include="Content\img\autores\0da21532a0ca4de982239536aab9861f.jpg" />
+    <Content Include="Content\img\autores\0dcb2c6b6e184087a0621dcd8380812b.jpg" />
+    <Content Include="Content\img\autores\0e3fd37a61504a7aa5fb940f7eff7d92.jpg" />
+    <Content Include="Content\img\autores\0e737f199bf24640beecf809f9e5549e.jpg" />
+    <Content Include="Content\img\autores\0ed0a514e0ef4ea89dec2f38f0ae95c9.jpg" />
+    <Content Include="Content\img\autores\0f81ec50d1dc4f33b2145252e0ea62cb.jpg" />
+    <Content Include="Content\img\autores\0f8c976cb1424599a7aff68fcc881873.jpg" />
+    <Content Include="Content\img\autores\0fb7ce9106a14da49f9040cb0ff9e7ee.jpg" />
+    <Content Include="Content\img\autores\0fbe8f67b3fb4851937f7f3212a87c59.jpg" />
+    <Content Include="Content\img\autores\0fc0fb622d004018902c4986dd5f9184.jpg" />
+    <Content Include="Content\img\autores\1009f6edd56d429a9d12fdf3374d588f.jpg" />
+    <Content Include="Content\img\autores\10233183e74c4e20918a7184b1db6387.jpg" />
+    <Content Include="Content\img\autores\1045dd84c2844955a02f796f671cc694.jpg" />
+    <Content Include="Content\img\autores\104b53d00277434082d93ab505d325f0.jpg" />
+    <Content Include="Content\img\autores\10815b2a0609476184221168f4e2cd6d.jpg" />
+    <Content Include="Content\img\autores\10d4c30939824f70aeb514f638dcddc7.jpg" />
+    <Content Include="Content\img\autores\110b16e34fd74f0b91a1cb7eb4809bf7.jpg" />
+    <Content Include="Content\img\autores\112b65e7f63a47ca8a7ecb6ab84fd944.jpg" />
+    <Content Include="Content\img\autores\1220f50ee0de4c04a95c05dc3cf27504.jpg" />
+    <Content Include="Content\img\autores\1253fa407f834e0e9da66aa9aa36b3ac.jpg" />
+    <Content Include="Content\img\autores\1266953da2ec41088d6df671c00a5be7.jpg" />
+    <Content Include="Content\img\autores\12865f4afaa04835be4ade5f8c4de6a0.jpg" />
+    <Content Include="Content\img\autores\13a836e3a12d439685d16a5f95661535.jpg" />
+    <Content Include="Content\img\autores\13ac08c24c764f908a3aadb482e8e5e3.jpg" />
+    <Content Include="Content\img\autores\143804e2391d40a4bba48e7ead8d3e60.jpg" />
+    <Content Include="Content\img\autores\1444a7e6b7c44cad8c1f866021ba736d.jpg" />
+    <Content Include="Content\img\autores\146f13f5a3564aaabc5b0eac365b0927.jpg" />
+    <Content Include="Content\img\autores\156b40605ba14de5b9bfa847d5434345.jpg" />
+    <Content Include="Content\img\autores\15bccc8f28164ea5b2f2b3d4887ac441.jpg" />
+    <Content Include="Content\img\autores\15ca6d74a90a4cca9580787be84bb5b9.jpg" />
+    <Content Include="Content\img\autores\17007cd064fe42dc9951e6fae9756f07.jpg" />
+    <Content Include="Content\img\autores\17f95276fcf64f01b4c4f61bf8b20511.jpg" />
+    <Content Include="Content\img\autores\1811852416634fb395e639e7042085bb.jpg" />
+    <Content Include="Content\img\autores\1820cb632a274694a9eee38bb1ec1c11.jpg" />
+    <Content Include="Content\img\autores\185a7d90402740b183398426afbf59b5.jpg" />
+    <Content Include="Content\img\autores\187ff9619e6447c48728228a899673ef.jpg" />
+    <Content Include="Content\img\autores\18bb06422ded45b492c1b7a7de9271e6.jpg" />
+    <Content Include="Content\img\autores\18d407ec7f01468783dbbb7b0272e2ec.jpg" />
+    <Content Include="Content\img\autores\18ea459c2fb24b5aab61cde50ab197e5.jpg" />
+    <Content Include="Content\img\autores\19101c69a9ab4bafb1ae313529722f99.jpg" />
+    <Content Include="Content\img\autores\1a2e183cf8fe4283b7406d17fe9e8fb7.jpg" />
+    <Content Include="Content\img\autores\1c05bdc81115470297d6f438017a696c.jpg" />
+    <Content Include="Content\img\autores\1c1f3a32a56e43f3971364c19b42301a.jpg" />
+    <Content Include="Content\img\autores\1c4adcc709a640c7857d5b1990c082bf.jpg" />
+    <Content Include="Content\img\autores\1c577e238bbb4290abe0210a1eea07d3.jpg" />
+    <Content Include="Content\img\autores\1cf44a8d60384a37a323a9ccbbee2632.jpg" />
+    <Content Include="Content\img\autores\1d4d68cc662544e583f0baec6d095162.jpg" />
+    <Content Include="Content\img\autores\1e2b402d5e614aa4b8a1c245c2a59744.jpg" />
+    <Content Include="Content\img\autores\1e7974997b1e4aa6b3d4478a39223248.jpg" />
+    <Content Include="Content\img\autores\1f0d783203b74a3a9ec4032bdf6891bc.jpg" />
+    <Content Include="Content\img\autores\1f3cda35978a4637a09b31e8a95f62d5.jpg" />
+    <Content Include="Content\img\autores\1f41247e3fe34c0a869271c6e325bfa8.jpg" />
+    <Content Include="Content\img\autores\1f4b931ea7fb47ea9ab5217c03c789c1.jpg" />
+    <Content Include="Content\img\autores\1f983e2d060046678c2a3e0f0b00c436.jpg" />
+    <Content Include="Content\img\autores\2016a3a4e2da436980332eecdb787196.jpg" />
+    <Content Include="Content\img\autores\2047839e0844438c91bd3e589d59a794.jpg" />
+    <Content Include="Content\img\autores\20699f54332445d0b71874638c8094a8.jpg" />
+    <Content Include="Content\img\autores\20e9336c944349838c208c3c37834fbc.jpg" />
+    <Content Include="Content\img\autores\21bf30532e224301a3a3592b8e3f3aa8.jpg" />
+    <Content Include="Content\img\autores\21c2cd93968846dfa9b22e8c63a5aff2.jpg" />
+    <Content Include="Content\img\autores\22415a17a6f34c48b8c242ce9b7044d0.jpg" />
+    <Content Include="Content\img\autores\227ba29ee43f4f56954ff4e172ebd1c1.jpg" />
+    <Content Include="Content\img\autores\2287cd9a4fb045c2b05c536eaea97753.jpg" />
+    <Content Include="Content\img\autores\22b0f649c28b45b2ad85bcb25c0fb292.jpg" />
+    <Content Include="Content\img\autores\22ff5e0669fa4c65ad9e46163b59961c.jpg" />
+    <Content Include="Content\img\autores\231914cf912a46b78966b680edeb6d61.jpg" />
+    <Content Include="Content\img\autores\23950b85178346a4a3553bed296dd5b0.jpg" />
+    <Content Include="Content\img\autores\24e159cb0a364e5194b3ddcdfc4f5932.jpg" />
+    <Content Include="Content\img\autores\24e64936a510431ca2093a69f301b712.jpg" />
+    <Content Include="Content\img\autores\24f45ee54f9b45aeb2af5fb630ec762e.jpg" />
+    <Content Include="Content\img\autores\250d9d86209641bd8c6a9374bec81b90.jpg" />
+    <Content Include="Content\img\autores\255ef09412dc460d95675d11d3c84005.jpg" />
+    <Content Include="Content\img\autores\256ed02382324cac8768e6de78f5d7bc.jpg" />
+    <Content Include="Content\img\autores\268ca9ff51ff4874b6004f56ebd30ae7.jpg" />
+    <Content Include="Content\img\autores\271b09e50aa34bebb9f8ac5b56a6239c.jpg" />
+    <Content Include="Content\img\autores\278421a93b1d4e60a5e9515e11fd9808.jpg" />
+    <Content Include="Content\img\autores\27b76bbe66764728aa66f341a93b9a99.jpg" />
+    <Content Include="Content\img\autores\27effba4d59f42b1bb9dbb0cfd8cb3de.jpg" />
+    <Content Include="Content\img\autores\280234bb8ed1425aa72e2b3f8fea8ecf.jpg" />
+    <Content Include="Content\img\autores\285e6da6feb649c792f17a69562f9b33.jpg" />
+    <Content Include="Content\img\autores\28c6f7ba1bb7414da7445a4dc62c46b2.jpg" />
+    <Content Include="Content\img\autores\28e793ef40134a1ca85410d17becc14a.jpg" />
+    <Content Include="Content\img\autores\28eb6e034a3f4df8a2d8003c73ac8afc.jpg" />
+    <Content Include="Content\img\autores\290ce151744b4e78bebffa9bae977680.jpg" />
+    <Content Include="Content\img\autores\297357503aef48a0b9dc1dd9f0447d74.jpg" />
+    <Content Include="Content\img\autores\299fcfc314144154a62ecf3911eb9788.jpg" />
+    <Content Include="Content\img\autores\29e29c26ad9f49929d8b133ffa5e989e.jpg" />
+    <Content Include="Content\img\autores\2a280726f7bc4421b7e005786e9e235e.jpg" />
+    <Content Include="Content\img\autores\2a652f527dc14ade9a2638d10480f387.jpg" />
+    <Content Include="Content\img\autores\2ad74d4e0c9c44efb3a9b9b7d8c1b7d0.jpg" />
+    <Content Include="Content\img\autores\2adb9cc1ade94bd6b567d9b3cd29badd.jpg" />
+    <Content Include="Content\img\autores\2b04c401d7f9444f8117e22b858ba3e1.jpg" />
+    <Content Include="Content\img\autores\2bb8382da09a4650ba0c8bbf960020f9.jpg" />
+    <Content Include="Content\img\autores\2c38a7d476ee475a8dfdb2ba47ca31d6.jpg" />
+    <Content Include="Content\img\autores\2d22f96df39c47c68cccb3b91d02c226.jpg" />
+    <Content Include="Content\img\autores\2db82a9a2e66458da61db4019a8e3ee8.jpg" />
+    <Content Include="Content\img\autores\2eab20e970684c89a44cb2f1725f1aba.jpg" />
+    <Content Include="Content\img\autores\2ebdb559a0784a8280125fd0799b3aa7.jpg" />
+    <Content Include="Content\img\autores\2ef429d779aa449aa4d765bb93b09c0f.jpg" />
+    <Content Include="Content\img\autores\2f5805a5c11e4425940dd652f200f722.jpg" />
+    <Content Include="Content\img\autores\2f60165854d14200b5c21f01770b8229.jpg" />
+    <Content Include="Content\img\autores\2ffd51dc41e545c8ba9a40e1e3356f45.jpg" />
+    <Content Include="Content\img\autores\3038831e30654070899eccb6a5674ba1.jpg" />
+    <Content Include="Content\img\autores\30567b70f3c3487ca8d089d19682e61e.jpg" />
+    <Content Include="Content\img\autores\307a0b07cb9f44b882cc501298a27c6a.jpg" />
+    <Content Include="Content\img\autores\308642adf83e45d69ccdfa7c607c5917.jpg" />
+    <Content Include="Content\img\autores\30fade589d0e42fa8333aedb6d12c09a.jpg" />
+    <Content Include="Content\img\autores\30fb9a671dbf48b0ac7f5b054e4630d7.jpg" />
+    <Content Include="Content\img\autores\312c70172c134c67b399506b66a5a4e0.jpg" />
+    <Content Include="Content\img\autores\3179a5d3267e433092a6ba0fa78132b9.jpg" />
+    <Content Include="Content\img\autores\3255136af4a14ccd82aa42f867090398.jpg" />
+    <Content Include="Content\img\autores\32c2082740aa4d7288116818deac357d.jpg" />
+    <Content Include="Content\img\autores\32c2e680bd1d44cf9c9a99bf83a39e95.jpg" />
+    <Content Include="Content\img\autores\32e7ceae452649fcaa03dce44da919af.jpg" />
+    <Content Include="Content\img\autores\33d8ba37f5ff43e9a4911a3f4f8424c6.jpg" />
+    <Content Include="Content\img\autores\33f3dc0f24924dacb9757e32bd00e625.jpg" />
+    <Content Include="Content\img\autores\345385560386459fb75879a8362de5f5.jpg" />
+    <Content Include="Content\img\autores\345f25c75dca4ae1bc2484aaabedaba1.jpg" />
+    <Content Include="Content\img\autores\352c6b40605242389cbc50c8c604ef6e.jpg" />
+    <Content Include="Content\img\autores\35e63893c32d4d5995bcb600034cab14.jpg" />
+    <Content Include="Content\img\autores\35f562bf3a034182ac6011e7d33f51bc.jpg" />
+    <Content Include="Content\img\autores\3633f32a1110441985d0443485bb421d.jpg" />
+    <Content Include="Content\img\autores\36a5f5d3dc92463c8efc1a41613af2a2.jpg" />
+    <Content Include="Content\img\autores\3726d0dfc5804a52896e1c02c5c56ab2.jpg" />
+    <Content Include="Content\img\autores\3748ec5b544e402fbb1736abbbec66af.jpg" />
+    <Content Include="Content\img\autores\377de98aa83f4f218648723d8d2e1b68.jpg" />
+    <Content Include="Content\img\autores\378072ba1a9547499ee3e320c828b023.jpg" />
+    <Content Include="Content\img\autores\37a982669bb347249703eddf4b113fb8.jpg" />
+    <Content Include="Content\img\autores\37cc4626a24749b0be6d3c2dfb71efac.jpg" />
+    <Content Include="Content\img\autores\37f7c9e6f0b64edea63859b946743225.jpg" />
+    <Content Include="Content\img\autores\3805105636434514809bd37b7d2ae26f.jpg" />
+    <Content Include="Content\img\autores\382e7bee55b2445a80023cde56efbfce.jpg" />
+    <Content Include="Content\img\autores\3832dc9f17ca4229a0039ee9912ebc9d.jpg" />
+    <Content Include="Content\img\autores\389d1ac1c2514aa99973fbd451672a78.jpg" />
+    <Content Include="Content\img\autores\392726ad5e5e41b487353e6e9e7793dd.jpg" />
+    <Content Include="Content\img\autores\3964b94efa1a4c44aca824f39ecf2e89.jpg" />
+    <Content Include="Content\img\autores\3980aed205024caebe356276defd604e.jpg" />
+    <Content Include="Content\img\autores\39b60215737e4fe2bff7c0462f6dfa37.jpg" />
+    <Content Include="Content\img\autores\39dc400737794032a013ac06cf07b0a1.jpg" />
+    <Content Include="Content\img\autores\3a0a666d178a4c9cbac667e2c02c53a9.jpg" />
+    <Content Include="Content\img\autores\3a43e487e0cc4fb9a393e33c91b78be5.jpg" />
+    <Content Include="Content\img\autores\3a6e9dbad7b14277aaa05b2696f1bcb6.jpg" />
+    <Content Include="Content\img\autores\3a8900c1e40d46e7ae42f621f0e78f16.jpg" />
+    <Content Include="Content\img\autores\3ae6d7a0f9934e0ba2d5cc534441096e.jpg" />
+    <Content Include="Content\img\autores\3af69199017842d1b83f3f4cda1ca5f0.jpg" />
+    <Content Include="Content\img\autores\3b32d11903b047189297cbd9c319c821.jpg" />
+    <Content Include="Content\img\autores\3b3f63b6ccae47cfbdeda0640c40b2d7.jpg" />
+    <Content Include="Content\img\autores\3b578cf2ae8c49fda3189e9f6f487f67.jpg" />
+    <Content Include="Content\img\autores\3bdc8dc63115479c9af49cf7bcad7e89.jpg" />
+    <Content Include="Content\img\autores\427cd94981d74d9fac5f0180c142e9ea.jpg" />
+    <Content Include="Content\img\autores\468796d31df1402db9238b9e8f48d571.jpg" />
+    <Content Include="Content\img\autores\485f3e0366f5418185a4eeb8c7117153.jpg" />
+    <Content Include="Content\img\autores\4fc350967ec84332acb8cabbe012f7e9.jpg" />
+    <Content Include="Content\img\autores\51c1c81acaaa4070bc41fd3d91798fe2.jpg" />
+    <Content Include="Content\img\autores\51cff5f0b9f2434b8ae00ea638180b70.jpg" />
+    <Content Include="Content\img\autores\521b93b8396048da9b0dffee0c762b34.jpg" />
+    <Content Include="Content\img\autores\5804f88b33224f3ebd127a3f682e9411.jpg" />
+    <Content Include="Content\img\autores\6937378a2ce944539125db5ac87d0b4c.jpg" />
+    <Content Include="Content\img\autores\694900ed462546a7b42a0b675c95dfd5.jpg" />
+    <Content Include="Content\img\autores\78f3c9f99ff24892b1d2fd597aa23994.jpg" />
+    <Content Include="Content\img\autores\919fec9dae7d4b4b822347462dec2500.jpg" />
+    <Content Include="Content\img\autores\985eab533dbc485b94df691164aa85d7.jpg" />
+    <Content Include="Content\img\autores\9a8b2ce8a2ad420f8bc675f3144808f8.jpg" />
+    <Content Include="Content\img\autores\a430442de8574f8d90086962aee0b1fa.jpg" />
+    <Content Include="Content\img\autores\a82ef87a1dbf47c88b21981653d56cac.jpg" />
+    <Content Include="Content\img\autores\b33378cde37349ae855e4dea1b6ec870.jpg" />
+    <Content Include="Content\img\autores\bd4edfdee6ce4262b899677a6530ae4b.jpg" />
+    <Content Include="Content\img\autores\bfc5fa52bf34457e8d42dc27cec33a8c.jpg" />
+    <Content Include="Content\img\autores\c0f2436676ea40f49bcb530e5d0db06d.jpg" />
+    <Content Include="Content\img\autores\c53ad6bbc73d458384d5bc68a6232fc2.jpg" />
+    <Content Include="Content\img\autores\db009bfdfa464f9bb51e0128b23e1fde.jpg" />
+    <Content Include="Content\img\autores\dc92b16208774a30a28b29eb34d1e3c0.jpg" />
+    <Content Include="Content\img\autores\fb727c90fde5493dbcb3d3fd5dcf69e9.jpg" />
+    <Content Include="Content\img\autores\fd6926d45e834ef38108e83ba5a2b036.jpg" />
+    <Content Include="Content\img\autores\fe135e6b0b034f4dbd3843273c43b67e.jpg" />
+    <Content Include="Content\img\autores\img-autor.png" />
+    <Content Include="Content\img\autores\pequena\011ddd75da48415794241f7eac05d284.jpg" />
+    <Content Include="Content\img\autores\pequena\01344e011be24798ab1a8d239a668745.jpg" />
+    <Content Include="Content\img\autores\pequena\017b5d170315476b827ef426d85802ff.jpg" />
+    <Content Include="Content\img\autores\pequena\01e0d20b00c940e3be7c79b80deaf21c.jpg" />
+    <Content Include="Content\img\autores\pequena\01f3e3c2b25e45f6b5abbe9e568685ff.jpg" />
+    <Content Include="Content\img\autores\pequena\021c6c4a3e97498295c088603a7851e5.jpg" />
+    <Content Include="Content\img\autores\pequena\028b284b95384acca06f1eb4a1147c08.jpg" />
+    <Content Include="Content\img\autores\pequena\02bb47f02ffc4dbab466450fff886286.jpg" />
+    <Content Include="Content\img\autores\pequena\02c78d562b8e4d4d933bdf1389e3fe81.jpg" />
+    <Content Include="Content\img\autores\pequena\02f2cbe83f8d48539570740611f3732b.jpg" />
+    <Content Include="Content\img\autores\pequena\0305b05a5efe448e9ca20c7688b6b3f7.jpg" />
+    <Content Include="Content\img\autores\pequena\0311467dcedc418287826a02e80a22e0.jpg" />
+    <Content Include="Content\img\autores\pequena\04112a7cfe854197939c30418d8e7f99.jpg" />
+    <Content Include="Content\img\autores\pequena\049d0cfc730d4ee2ac0ee4117b2734c0.jpg" />
+    <Content Include="Content\img\autores\pequena\057f445f85ae4dfa8aa8876dc88cac7c.jpg" />
+    <Content Include="Content\img\autores\pequena\05ac6d6b4bd341e9b458d41405fccdd5.jpg" />
+    <Content Include="Content\img\autores\pequena\05b0de40a67b4f6cb70fbb11cd9acf37.jpg" />
+    <Content Include="Content\img\autores\pequena\05d2c04ccf364c099931370775780ada.jpg" />
+    <Content Include="Content\img\autores\pequena\05e030e1356c4aeb8d684583c87030e1.jpg" />
+    <Content Include="Content\img\autores\pequena\05f5699d459541528a3f3fe1250472df.jpg" />
+    <Content Include="Content\img\autores\pequena\05faa39c7e6e47c9a0ff7e7f7b54e2d1.jpg" />
+    <Content Include="Content\img\autores\pequena\060e437fe253438fa2049438e75f6d54.jpg" />
+    <Content Include="Content\img\autores\pequena\0923436f40764ac1afc8323ffa58f55d.jpg" />
+    <Content Include="Content\img\autores\pequena\0c03c83fe82d44feb6f397994bd7144a.jpg" />
+    <Content Include="Content\img\autores\pequena\0d27512e059642b791a25081b28202bc.jpg" />
+    <Content Include="Content\img\autores\pequena\1266953da2ec41088d6df671c00a5be7.jpg" />
+    <Content Include="Content\img\autores\pequena\13ac08c24c764f908a3aadb482e8e5e3.jpg" />
+    <Content Include="Content\img\autores\pequena\146f13f5a3564aaabc5b0eac365b0927.jpg" />
+    <Content Include="Content\img\autores\pequena\187ff9619e6447c48728228a899673ef.jpg" />
+    <Content Include="Content\img\autores\pequena\19101c69a9ab4bafb1ae313529722f99.jpg" />
+    <Content Include="Content\img\autores\pequena\1a2e183cf8fe4283b7406d17fe9e8fb7.jpg" />
+    <Content Include="Content\img\autores\pequena\1c05bdc81115470297d6f438017a696c.jpg" />
+    <Content Include="Content\img\autores\pequena\2db82a9a2e66458da61db4019a8e3ee8.jpg" />
+    <Content Include="Content\img\autores\pequena\2eab20e970684c89a44cb2f1725f1aba.jpg" />
+    <Content Include="Content\img\autores\pequena\3bdc8dc63115479c9af49cf7bcad7e89.jpg" />
+    <Content Include="Content\img\autores\pequena\427cd94981d74d9fac5f0180c142e9ea.jpg" />
+    <Content Include="Content\img\autores\pequena\468796d31df1402db9238b9e8f48d571.jpg" />
+    <Content Include="Content\img\autores\pequena\485f3e0366f5418185a4eeb8c7117153.jpg" />
+    <Content Include="Content\img\autores\pequena\4fc350967ec84332acb8cabbe012f7e9.jpg" />
+    <Content Include="Content\img\autores\pequena\51c1c81acaaa4070bc41fd3d91798fe2.jpg" />
+    <Content Include="Content\img\autores\pequena\51cff5f0b9f2434b8ae00ea638180b70.jpg" />
+    <Content Include="Content\img\autores\pequena\521b93b8396048da9b0dffee0c762b34.jpg" />
+    <Content Include="Content\img\autores\pequena\5804f88b33224f3ebd127a3f682e9411.jpg" />
+    <Content Include="Content\img\autores\pequena\6937378a2ce944539125db5ac87d0b4c.jpg" />
+    <Content Include="Content\img\autores\pequena\694900ed462546a7b42a0b675c95dfd5.jpg" />
+    <Content Include="Content\img\autores\pequena\78f3c9f99ff24892b1d2fd597aa23994.jpg" />
+    <Content Include="Content\img\autores\pequena\919fec9dae7d4b4b822347462dec2500.jpg" />
+    <Content Include="Content\img\autores\pequena\985eab533dbc485b94df691164aa85d7.jpg" />
+    <Content Include="Content\img\autores\pequena\9a8b2ce8a2ad420f8bc675f3144808f8.jpg" />
+    <Content Include="Content\img\autores\pequena\a430442de8574f8d90086962aee0b1fa.jpg" />
+    <Content Include="Content\img\autores\pequena\a82ef87a1dbf47c88b21981653d56cac.jpg" />
+    <Content Include="Content\img\autores\pequena\b33378cde37349ae855e4dea1b6ec870.jpg" />
+    <Content Include="Content\img\autores\pequena\bd4edfdee6ce4262b899677a6530ae4b.jpg" />
+    <Content Include="Content\img\autores\pequena\bfc5fa52bf34457e8d42dc27cec33a8c.jpg" />
+    <Content Include="Content\img\autores\pequena\c0f2436676ea40f49bcb530e5d0db06d.jpg" />
+    <Content Include="Content\img\autores\pequena\c53ad6bbc73d458384d5bc68a6232fc2.jpg" />
+    <Content Include="Content\img\autores\pequena\db009bfdfa464f9bb51e0128b23e1fde.jpg" />
+    <Content Include="Content\img\autores\pequena\dc92b16208774a30a28b29eb34d1e3c0.jpg" />
+    <Content Include="Content\img\autores\pequena\fb727c90fde5493dbcb3d3fd5dcf69e9.jpg" />
+    <Content Include="Content\img\autores\pequena\fd6926d45e834ef38108e83ba5a2b036.jpg" />
+    <Content Include="Content\img\autores\pequena\fe135e6b0b034f4dbd3843273c43b67e.jpg" />
+    <Content Include="Content\img\autores\pequena\img-autor.png" />
+    <Content Include="Content\img\barrinha.png" />
+    <Content Include="Content\img\bg-autor-grande.png" />
+    <Content Include="Content\img\bg-autor.png" />
+    <Content Include="Content\img\bg-blog.png" />
+    <Content Include="Content\img\bg-busca-principal.png" />
+    <Content Include="Content\img\bg-rodape.png" />
+    <Content Include="Content\img\bg-topo.png" />
+    <Content Include="Content\img\bg-videos.png" />
+    <Content Include="Content\img\blog\img-blog.png" />
+    <Content Include="Content\img\blog\o-jardim.png" />
+    <Content Include="Content\img\favicon.ico" />
+    <Content Include="Content\img\fb-icon.png" />
+    <Content Include="Content\img\frases\abel-bonnard-01.png" />
+    <Content Include="Content\img\frases\adoniran-barbosa-01.png" />
+    <Content Include="Content\img\frases\albert-camus-01.png" />
+    <Content Include="Content\img\frases\albert-einstein-01.png" />
+    <Content Include="Content\img\frases\albert-einstein-02.png" />
+    <Content Include="Content\img\frases\albert-einstein-03.png" />
+    <Content Include="Content\img\frases\albert-einstein-04.png" />
+    <Content Include="Content\img\frases\albert-einstein-05.png" />
+    <Content Include="Content\img\frases\alfred-adler-01.png" />
+    <Content Include="Content\img\frases\amar-cura.png" />
+    <Content Include="Content\img\frases\anais-nin-01.png" />
+    <Content Include="Content\img\frases\anatole-france-01.png" />
+    <Content Include="Content\img\frases\andy-warhol-01.png" />
+    <Content Include="Content\img\frases\anitelli-01.png" />
+    <Content Include="Content\img\frases\ann-lander-01.png" />
+    <Content Include="Content\img\frases\aristoteles-01.png" />
+    <Content Include="Content\img\frases\arnaldo-antunes-01.png" />
+    <Content Include="Content\img\frases\arthur-schopenhauer-01.fw.png" />
+    <Content Include="Content\img\frases\augusto-cury-01.png" />
+    <Content Include="Content\img\frases\ayrton-senna-01.png" />
+    <Content Include="Content\img\frases\barack-obama-01.png" />
+    <Content Include="Content\img\frases\baruch-espinoza-01.png" />
+    <Content Include="Content\img\frases\bernardinho-01.png" />
+    <Content Include="Content\img\frases\bob-marley-01.png" />
+    <Content Include="Content\img\frases\camoes-01.png" />
+    <Content Include="Content\img\frases\carl-jung-01.png" />
+    <Content Include="Content\img\frases\carl-yastrzemski-01.png" />
+    <Content Include="Content\img\frases\cazuza-01.png" />
+    <Content Include="Content\img\frases\cazuza-02.png" />
+    <Content Include="Content\img\frases\cazuza-03.png" />
+    <Content Include="Content\img\frases\charlie-chaplin-01.png" />
+    <Content Include="Content\img\frases\chico-xavier-01.png" />
+    <Content Include="Content\img\frases\chico-xavier-02.png" />
+    <Content Include="Content\img\frases\chorao-01.png" />
+    <Content Include="Content\img\frases\chorao-02.png" />
+    <Content Include="Content\img\frases\chorao-03.png" />
+    <Content Include="Content\img\frases\cidade-negra-01.png" />
+    <Content Include="Content\img\frases\confucio-01.png" />
+    <Content Include="Content\img\frases\da-vinci-01.jpg" />
+    <Content Include="Content\img\frases\dalai-lama-01.png" />
+    <Content Include="Content\img\frases\dalai-lama-02.png" />
+    <Content Include="Content\img\frases\dalai-lama-03.png" />
+    <Content Include="Content\img\frases\dalai-lama-04.png" />
+    <Content Include="Content\img\frases\dan-quayle-01.png" />
+    <Content Include="Content\img\frases\danilo-cutrim-01.png" />
+    <Content Include="Content\img\frases\deconhecido-01.png" />
+    <Content Include="Content\img\frases\deconhecido-02.png" />
+    <Content Include="Content\img\frases\deconhecido-03.png" />
+    <Content Include="Content\img\frases\deconhecido-04.png" />
+    <Content Include="Content\img\frases\deconhecido-05.png" />
+    <Content Include="Content\img\frases\deconhecido-06.png" />
+    <Content Include="Content\img\frases\deconhecido-07.png" />
+    <Content Include="Content\img\frases\deconhecido-08.png" />
+    <Content Include="Content\img\frases\deconhecido-09.png" />
+    <Content Include="Content\img\frases\deconhecido-10.png" />
+    <Content Include="Content\img\frases\democrito-01.png" />
+    <Content Include="Content\img\frases\desconhecido-01.png" />
+    <Content Include="Content\img\frases\desconhecido-ironia-01.png" />
+    <Content Include="Content\img\frases\desconhecido-ironia-02.png" />
+    <Content Include="Content\img\frases\desconhecido-motivacao-01.png" />
+    <Content Include="Content\img\frases\desconhecido-motivacao-02.png" />
+    <Content Include="Content\img\frases\desconhecido-motivacao-03.png" />
+    <Content Include="Content\img\frases\desconhecido-saudade-01.png" />
+    <Content Include="Content\img\frases\djavan-01.png" />
+    <Content Include="Content\img\frases\drummond-01.png" />
+    <Content Include="Content\img\frases\drummond-02.png" />
+    <Content Include="Content\img\frases\eleanor-roosevelt-01.png" />
+    <Content Include="Content\img\frases\esquilo-01.png" />
+    <Content Include="Content\img\frases\fernando-pessoa-01.png" />
+    <Content Include="Content\img\frases\fernando-pessoa-02.png" />
+    <Content Include="Content\img\frases\forfun-01.png" />
+    <Content Include="Content\img\frases\friedrich-nietzsche-01.png" />
+    <Content Include="Content\img\frases\friedrich-schiller-01.png" />
+    <Content Include="Content\img\frases\gabriel-garcia-marquez-01.png" />
+    <Content Include="Content\img\frases\georges-bernanos-01.png" />
+    <Content Include="Content\img\frases\guimaraes-rosa-01.png" />
+    <Content Include="Content\img\frases\guimaraes-rosa-02.png" />
+    <Content Include="Content\img\frases\herbert-vianna-01.png" />
+    <Content Include="Content\img\frases\hermann-hesse-01.png" />
+    <Content Include="Content\img\frases\hugo-chavez-01.png" />
+    <Content Include="Content\img\frases\janis-joplin-01.png" />
+    <Content Include="Content\img\frases\jean-cocteau-01.png" />
+    <Content Include="Content\img\frases\jean-paul-sartre-01.png" />
+    <Content Include="Content\img\frases\john-norley-01.png" />
+    <Content Include="Content\img\frases\jorge-luis-borges-01.png" />
+    <Content Include="Content\img\frases\jose-saramago-01.png" />
+    <Content Include="Content\img\frases\joseph-joubert-01.png" />
+    <Content Include="Content\img\frases\karl-marx-01.png" />
+    <Content Include="Content\img\frases\lao-tse-01.png" />
+    <Content Include="Content\img\frases\lenardo-da-vinci-01.png" />
+    <Content Include="Content\img\frases\lulu-santos-01.png" />
+    <Content Include="Content\img\frases\lulu-santos-02.png" />
+    <Content Include="Content\img\frases\m-de-chazal-01.png" />
+    <Content Include="Content\img\frases\madre-teresa-de-calcuta-01.png" />
+    <Content Include="Content\img\frases\madre-teresa-de-calcuta-02.png" />
+    <Content Include="Content\img\frases\mahatma-gandhi-01.png" />
+    <Content Include="Content\img\frases\mahatma-gandhi-02.png" />
+    <Content Include="Content\img\frases\mario-quintana-01.png" />
+    <Content Include="Content\img\frases\mario-quintana-02.png" />
+    <Content Include="Content\img\frases\mario-quintana-03.png" />
+    <Content Include="Content\img\frases\mario-quintana-04.png" />
+    <Content Include="Content\img\frases\mario-quintana-05.png" />
+    <Content Include="Content\img\frases\mestre-dos-magos.png" />
+    <Content Include="Content\img\frases\michel-foucault-01.png" />
+    <Content Include="Content\img\frases\nelson-mandela-01.png" />
+    <Content Include="Content\img\frases\nelson-rodrigues-01.png" />
+    <Content Include="Content\img\frases\niels-bohr-01.png" />
+    <Content Include="Content\img\frases\pablo-neruda-01.png" />
+    <Content Include="Content\img\frases\patativa-assare-01.png" />
+    <Content Include="Content\img\frases\paula-liron-01.png" />
+    <Content Include="Content\img\frases\paulo-coelho-01.png" />
+    <Content Include="Content\img\frases\paulo-coelho-02.png" />
+    <Content Include="Content\img\frases\paulo-coelho-03.png" />
+    <Content Include="Content\img\frases\pequenas\abel-bonnard-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\adoniran-barbosa-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\albert-camus-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\albert-einstein-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\albert-einstein-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\albert-einstein-03.jpg" />
+    <Content Include="Content\img\frases\pequenas\albert-einstein-04.jpg" />
+    <Content Include="Content\img\frases\pequenas\albert-einstein-05.jpg" />
+    <Content Include="Content\img\frases\pequenas\alfred-adler-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\amar-cura.jpg" />
+    <Content Include="Content\img\frases\pequenas\anais-nin-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\anatole-france-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\andy-warhol-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\anitelli-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\ann-lander-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\aristoteles-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\arnaldo-antunes-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\arthur-schopenhauer-01.fw.jpg" />
+    <Content Include="Content\img\frases\pequenas\augusto-cury-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\ayrton-senna-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\barack-obama-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\baruch-espinoza-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\bernardinho-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\bob-marley-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\camoes-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\carl-jung-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\carl-yastrzemski-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\cazuza-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\cazuza-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\cazuza-03.jpg" />
+    <Content Include="Content\img\frases\pequenas\charlie-chaplin-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\chico-xavier-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\chico-xavier-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\chorao-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\chorao-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\chorao-03.jpg" />
+    <Content Include="Content\img\frases\pequenas\cidade-negra-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\confucio-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\da-vinci-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\dalai-lama-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\dalai-lama-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\dalai-lama-03.jpg" />
+    <Content Include="Content\img\frases\pequenas\dalai-lama-04.jpg" />
+    <Content Include="Content\img\frases\pequenas\dan-quayle-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\danilo-cutrim-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\deconhecido-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\deconhecido-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\deconhecido-03.jpg" />
+    <Content Include="Content\img\frases\pequenas\deconhecido-04.jpg" />
+    <Content Include="Content\img\frases\pequenas\deconhecido-05.jpg" />
+    <Content Include="Content\img\frases\pequenas\deconhecido-06.jpg" />
+    <Content Include="Content\img\frases\pequenas\deconhecido-07.jpg" />
+    <Content Include="Content\img\frases\pequenas\deconhecido-08.jpg" />
+    <Content Include="Content\img\frases\pequenas\deconhecido-09.jpg" />
+    <Content Include="Content\img\frases\pequenas\deconhecido-10.jpg" />
+    <Content Include="Content\img\frases\pequenas\democrito-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\desconhecido-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\desconhecido-ironia-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\desconhecido-ironia-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\desconhecido-motivacao-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\desconhecido-motivacao-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\desconhecido-motivacao-03.jpg" />
+    <Content Include="Content\img\frases\pequenas\desconhecido-saudade-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\djavan-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\drummond-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\drummond-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\eleanor-roosevelt-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\esquilo-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\fernando-pessoa-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\fernando-pessoa-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\forfun-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\friedrich-nietzsche-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\friedrich-schiller-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\gabriel-garcia-marquez-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\georges-bernanos-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\guimaraes-rosa-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\guimaraes-rosa-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\herbert-vianna-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\hermann-hesse-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\hugo-chavez-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\janis-joplin-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\jean-cocteau-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\jean-paul-sartre-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\john-norley-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\jorge-luis-borges-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\jose-saramago-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\joseph-joubert-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\karl-marx-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\lao-tse-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\lenardo-da-vinci-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\lulu-santos-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\lulu-santos-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\m-de-chazal-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\madre-teresa-de-calcuta-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\madre-teresa-de-calcuta-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\mahatma-gandhi-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\mahatma-gandhi-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\mario-quintana-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\mario-quintana-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\mario-quintana-03.jpg" />
+    <Content Include="Content\img\frases\pequenas\mario-quintana-04.jpg" />
+    <Content Include="Content\img\frases\pequenas\mario-quintana-05.jpg" />
+    <Content Include="Content\img\frases\pequenas\mestre-dos-magos.jpg" />
+    <Content Include="Content\img\frases\pequenas\michel-foucault-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\nelson-mandela-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\nelson-rodrigues-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\niels-bohr-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\pablo-neruda-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\patativa-assare-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\paula-liron-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\paulo-coelho-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\paulo-coelho-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\paulo-coelho-03.jpg" />
+    <Content Include="Content\img\frases\pequenas\pequeno-principe-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\pequeno-principe-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\profeta-gentileza-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\proverbio-biblico-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\proverbio-indiano-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\proverbio-suico-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\rachel-de-queiroz-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\raul-seixas-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\rei-leao-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\renato-russo-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\revelacao-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\rhenan-carvalho-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\robert-kennedy-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\rosa-de-saron-morais-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\samuel-rosa.jpg" />
+    <Content Include="Content\img\frases\pequenas\sigmund-freud-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\steve-jobs-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\sun-tzu-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\teatro-magico-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\teatro-magico-02.jpg" />
+    <Content Include="Content\img\frases\pequenas\thomas-brooks.jpg" />
+    <Content Include="Content\img\frases\pequenas\thomas-jefferson-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\tim-maia-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\tom-wilson-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\toni-garrido-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\vincent-peale-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\vinicius-de-moraes-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\walt-disney-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\william-shakespeare-01.jpg" />
+    <Content Include="Content\img\frases\pequenas\winston-churchill-01.jpg" />
+    <Content Include="Content\img\frases\pequeno-principe-01.png" />
+    <Content Include="Content\img\frases\pequeno-principe-02.png" />
+    <Content Include="Content\img\frases\profeta-gentileza-01.png" />
+    <Content Include="Content\img\frases\proverbio-biblico-01.png" />
+    <Content Include="Content\img\frases\proverbio-indiano-01.png" />
+    <Content Include="Content\img\frases\proverbio-suico-01.png" />
+    <Content Include="Content\img\frases\rachel-de-queiroz-01.png" />
+    <Content Include="Content\img\frases\raul-seixas-01.png" />
+    <Content Include="Content\img\frases\rei-leao-01.png" />
+    <Content Include="Content\img\frases\renato-russo-01.png" />
+    <Content Include="Content\img\frases\revelacao-01.png" />
+    <Content Include="Content\img\frases\rhenan-carvalho-01.png" />
+    <Content Include="Content\img\frases\robert-kennedy-01.png" />
+    <Content Include="Content\img\frases\rosa-de-saron-morais-01.png" />
+    <Content Include="Content\img\frases\samuel-rosa.png" />
+    <Content Include="Content\img\frases\sigmund-freud-01.png" />
+    <Content Include="Content\img\frases\steve-jobs-01.png" />
+    <Content Include="Content\img\frases\sun-tzu-01.png" />
+    <Content Include="Content\img\frases\teatro-magico-01.png" />
+    <Content Include="Content\img\frases\teatro-magico-02.png" />
+    <Content Include="Content\img\frases\thomas-brooks.png" />
+    <Content Include="Content\img\frases\thomas-jefferson-01.png" />
+    <Content Include="Content\img\frases\tim-maia-01.png" />
+    <Content Include="Content\img\frases\tom-wilson-01.png" />
+    <Content Include="Content\img\frases\toni-garrido-01.png" />
+    <Content Include="Content\img\frases\vincent-peale-01.png" />
+    <Content Include="Content\img\frases\vinicius-de-moraes-01.png" />
+    <Content Include="Content\img\frases\walt-disney-01.png" />
+    <Content Include="Content\img\frases\william-shakespeare-01.png" />
+    <Content Include="Content\img\frases\winston-churchill-01.png" />
+    <Content Include="Content\img\icon-correcao.png" />
+    <Content Include="Content\img\img-destaque.jpg" />
+    <Content Include="Content\img\img-facebook.png" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\quote.png" />
+    <Content Include="Content\img\texto-destaque.png" />
+    <Content Include="Content\img\voltar-topo.png" />
+    <Content Include="Content\pie\PIE.htc" />
+    <Content Include="Content\pie\PIE.js" />
+    <Content Include="Content\pie\PIE_uncompressed.htc" />
+    <Content Include="Content\pie\PIE_uncompressed.js" />
+    <Content Include="Content\shadowbox.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\img\autores\pequena\Thumbs.db" />
+    <Content Include="Content\img\autores\Thumbs.db" />
+    <Content Include="Content\img\blog\Thumbs.db" />
+    <Content Include="Content\img\Thumbs.db" />
+    <Content Include="Content\pie\PIE.php" />
+    <None Include="Properties\PublishProfiles\Poetizando - Homologação.pubxml" />
+    <None Include="Properties\PublishProfiles\Poetizando - Local.pubxml" />
+    <None Include="Properties\PublishProfiles\Poetizando - Produção.pubxml" />
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="robots.txt" />
+    <Content Include="Scripts\poetizando\pagina-frase-corrigir.js" />
+    <Content Include="Scripts\poetizando\pagina-frase-criar.js" />
+    <Content Include="Scripts\poetizando\pagina-home.js" />
+    <Content Include="Scripts\poetizando\pagina-imagem.js" />
+    <Content Include="Scripts\poetizando\geral.js" />
+    <Content Include="Scripts\html5.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\shadowbox.js" />
+    <Content Include="sitemap.xml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Autor\FrasesPorAutor.cshtml" />
+    <Content Include="Views\Autor\Index.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Contato\Anuncie.cshtml" />
+    <Content Include="Views\Contato\Index.cshtml" />
+    <Content Include="Views\Frase\Criar.cshtml" />
+    <Content Include="Views\Frase\Detalhe.cshtml" />
+    <Content Include="Views\Frase\Index.cshtml" />
+    <Content Include="Views\Home\Buscar.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Frase.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_ListaFrase.cshtml" />
+    <Content Include="Views\Shared\_ListaVideo.cshtml" />
+    <Content Include="Views\Shared\_Populares.cshtml" />
+    <Content Include="Views\Sobre\Index.cshtml" />
+    <Content Include="Views\Video\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Blog\Detalhe.cshtml" />
+    <Content Include="Views\Frase\FraseEnviada.cshtml" />
+    <Content Include="Views\Contato\Sucesso.cshtml" />
+    <Content Include="Views\Imagem\Index.cshtml" />
+    <Content Include="Views\Imagem\_ListaImagem.cshtml" />
+    <Content Include="Views\Imagem\Detalhe.cshtml" />
+    <Content Include="Views\Frase\Corrigir.cshtml" />
+    <Content Include="Views\Frase\CorrecaoEnviada.cshtml" />
+    <Content Include="Views\Video\Detalhe.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidade\Entidade.csproj">
+      <Project>{1bb227df-acfa-4a0b-add6-44986895b64c}</Project>
+      <Name>Entidade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{c204a184-69e7-4b5d-a6a5-7b71e1541179}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1426/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

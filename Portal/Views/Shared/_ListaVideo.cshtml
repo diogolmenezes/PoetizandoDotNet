@@ -1,0 +1,11 @@
+﻿@model IList<Poetizando.Entidade.Video>
+@using Poetizando.Negocio
+@foreach (var video in Model)
+{
+	<article class="video">
+        <iframe width="295" height="244" src="@video.Url" frameborder="0" allowfullscreen></iframe>
+        <h3><a href="/video/detalhe/@video.Titulo.NomeURL()" title="Assista ao vídeo @video.Titulo">@video.Titulo</a></h3>     
+        <p>@video.Descricao</p>        
+    </article>
+    <hr />
+}    

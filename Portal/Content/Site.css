@@ -1,0 +1,1057 @@
+﻿/*-----------------------------------------------------------------------------
+Poetizando (Portal)
+
+versão               : 1.0
+autor                : Diogo Menezes
+email                : diogolmenezes@gmail.com
+website				 : http://www.dmenezes.com.br/
+data de criacao      : 17-01-2013
+-----------------------------------------------------------------------------*/
+
+/* =Geral
+-----------------------------------------------------------------------------*/
+* {
+    margin:0px; padding:0px;
+}
+
+body {
+    position:relative;
+    background:#F9F8F3;
+    font:12px "Merriweather Sans", Georgia, "Myriad Pro", Arial;*/
+    /*font-family:'ABeeZee';*/
+}
+
+input, select, textarea {
+     font-family:'Merriweather Sans';
+     font-size:11px;
+}
+
+p {
+    line-height: 20px;
+    margin-bottom:15px;
+}
+
+h1 {
+    font-weight:normal;
+}
+
+h2 {
+    color:#C4202F;
+    font-size:25px;
+    text-transform:uppercase;
+    font-weight:normal;
+    margin-bottom:20px;
+}
+
+
+h3, h4 {
+    font-size:21px;
+    text-transform:uppercase;
+    font-weight:normal;
+    color:#cb2127;
+    width:100%;
+}
+
+hr {
+    border:none;
+    border:0px;
+    border-top:1px solid #EEEEEE;
+    margin:20px 0px;
+    clear:both;
+}
+
+fieldset {
+    border:none;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color:#cb2127;
+}
+
+a:hover {
+    text-decoration:underline !important;
+}
+
+.facebook {
+    background: url(img/fb-icon.png) no-repeat;
+    padding-left: 20px;
+}
+
+.barra-social {
+    clear:both;
+    padding:5px !important;
+    position:fixed !important;
+    right:35px !important;
+    width:65px;
+    text-align:center;
+    border:2px solid #EEEEEE;
+    top:160px !important;
+    display:block !important;    
+    -moz-border-radius: 4px; -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px; border-radius: 4px; 
+}
+
+.home .barra-social {
+    top:470px !important;
+}
+
+
+.barra-social .fb {    
+    height:75px !important;
+}
+
+.barra-social .plus {
+    padding-top:10px;
+    border-top:1px solid #EEEEEE;
+}
+
+@media screen and (max-width: 1024px) {
+    .barra-social {
+        display: none !important;
+    }
+}
+
+::selection { background: #A02800; color: #fff; } ::-moz-selection { background: #A02800; color: #fff; }
+
+/* =Estrutura
+-----------------------------------------------------------------------------*/
+header {
+    height: 105px;
+    background: url(img/bg-topo.png) repeat-x;  
+    min-width:1000px;
+}
+
+header .limite {
+    width:1000px;
+    margin:auto;
+    position:relative;
+}
+
+#container {
+    width:1000px;
+    margin:auto;    
+}
+
+#conteudo {
+    padding:30px 20px 20px 20px;
+}
+
+footer .limite {
+    padding-top:30px;
+    width:1000px;
+    margin:auto;
+    height:45px;
+}
+
+/* =Cabeçalho
+-----------------------------------------------------------------------------*/
+header h1 {    
+    margin-left:10px;
+    margin-top:20px;
+    margin-right:70px;
+    float:left;
+}
+
+header h1 a {
+    background:url(img/logo.png) no-repeat;
+    text-decoration:none;
+    color:#FFF;
+    display:block;
+    width:171px;
+    height:52px;
+    text-indent:-90000px;
+    overflow:hidden;
+}
+
+header fieldset {
+    float:left;
+    margin-top:20px;
+    background:url(img/bg-busca-principal.png) no-repeat;
+    width:550px; 
+    line-height:35px;
+    padding:0px 10px;
+}
+
+header fieldset input[type=text], header fieldset input[type=search]{
+    width:400px;
+    height:20px;
+    padding:0px 5px;
+    border:none;
+    -webkit-appearance: none;
+    outline:none;
+}
+
+header #menu-principal ul {       
+    position:absolute;
+    top:75px;
+    left:247px;
+}
+
+header #menu-principal ul li {
+    display:inline;
+    margin-right:12px;
+}
+
+header #menu-principal ul li a {
+    color:#FFF;
+    font-size:13px;
+    text-transform:uppercase;
+}
+
+header #menu-secundario ul {    
+    position:absolute;
+    top:35px;
+    right:0px;
+}
+
+header #menu-secundario ul li {
+    display:inline;
+    margin-left:10px;
+}
+
+header #menu-secundario ul li a {
+    color:#FFF;
+    font-size:11px;
+    text-transform:uppercase;
+}
+
+
+/* =Rodape
+-----------------------------------------------------------------------------*/
+footer {
+    min-width:1000px;
+    clear: both;
+    background:url(img/bg-rodape.png) repeat-x;
+    color:#FFF;
+}
+
+footer nav#menu-social {
+    float:left;
+    margin-right:200px;
+}
+
+footer nav#menu-social ul li {
+    margin-bottom:15px;
+}
+
+footer nav#menu-social ul li.facebook {
+    background:url(img/icone-facebook.png) 0px 3px no-repeat;
+    padding-left:30px;
+}
+
+footer nav#menu-social ul li.ios {
+    background:url(img/icone-ios.png) 0px 3px no-repeat;
+    padding-left:30px;
+}
+footer nav#menu-social ul li.android {
+    background:url(img/icone-android.png) 0px 3px no-repeat;
+    padding-left:30px;
+}
+
+
+footer p {
+    float:left;
+}
+
+footer a {
+    color:#FFF;
+}
+
+footer nav#menu {
+    float:right;
+}
+
+footer nav#menu ul li{
+    display:inline;
+    margin-left:15px;
+}
+
+
+
+/* =Destaque
+-----------------------------------------------------------------------------*/
+.home #destaque {
+    display: block !important;
+}
+
+#destaque {    
+    min-width:1000px;
+    margin-top:5px;
+    height:336px;
+    background:url(img/img-destaque.jpg) repeat-x;
+}
+
+#destaque #texto {
+    margin:auto; 
+    width:1000px; 
+    position:relative;
+    height:336px;
+    background:url(img/texto-destaque.png) center center no-repeat;
+}
+
+#destaque #texto .autor {
+    position:absolute;
+    bottom:20px;
+    right:200px;
+    padding:1px 10px 3px 35px;    
+    background:url(img/bg-autor-grande.png) left no-repeat;    
+}
+
+#destaque #texto .autor a {
+    text-decoration:none;
+    background:#C4202F;
+    text-transform:uppercase;
+    font-size:15px;
+    color:#FFF;  
+    padding:1px 10px 3px 0px;
+}
+
+/* =Pagina Busca
+-----------------------------------------------------------------------------*/
+#pagina-busca nav#autores {
+    margin-bottom: 80px;
+}
+
+#pagina-busca nav#autores ul li {
+    float:left;
+    margin-bottom:20px;
+    margin-right:30px;
+}
+
+#pagina-busca nav#autores ul li img {    
+    margin-right:10px;    
+    width:82px; height:53px;
+    border:3px solid #ccc;
+    float:left;
+}
+
+#pagina-busca nav#autores ul li span {
+    float:left;
+    margin-top:10px;
+}
+
+#pagina-busca h3 {
+    font-size:15px;
+}
+
+
+/* =Pagina Inicial
+-----------------------------------------------------------------------------*/
+#pagina-inicial .botao{
+    float:right;
+}
+
+#pagina-inicial #caixa-ultimas-frases {
+    float:left; 
+    width:720px;   
+}
+
+#pagina-inicial #caixa-ultimas-frases h3 {
+    border-bottom:1px solid #F1F0EB;
+    padding-bottom:15px;
+}
+
+
+.ie7 #pagina-inicial #caixa-ultimas-frases h3 .botao,
+.ie8 #pagina-inicial #caixa-ultimas-frases h3 .botao {
+    margin-top:-20px;
+}
+
+#pagina-inicial #caixa-ultimas-frases nav.paginacao {
+    float:left; 
+    width:500px;
+    margin-top:30px;
+}
+
+#pagina-inicial #caixa-ultimas-frases nav.paginacao ul li a {
+    background:#EEEEEE;
+    display:block;
+    float:left;
+    margin-right:10px;
+    padding:5px 10px;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px; border-radius: 4px; 
+    behavior: url(/content/pie/PIE.htc);
+    border-color:#ccc;
+    color:#666;
+    text-decoration:none;
+}
+
+#pagina-inicial #caixa-ultimas-frases .criar-frase {
+    float:right; 
+    margin-top:30px;
+}
+
+
+#pagina-inicial #caixa-top-autores {
+    width:210px;
+    height:408px;
+    float:right;
+}
+
+#pagina-inicial #caixa-top-autores nav ul li {
+    clear:both;   
+    height:53px;
+    color:#511300;
+    margin-bottom:3px;
+    border:2px solid #5A5A59;
+}
+
+#pagina-inicial #caixa-top-autores nav ul li img {
+    float:left; 
+    border-right:2px solid #5A5A59;
+    margin-right:5px;    
+}
+
+#pagina-inicial #caixa-top-autores nav ul li .dados {
+    float:left;
+    width:115px;    
+}
+
+.ie7 #pagina-inicial #caixa-top-autores nav ul li .dados,
+.ie8 #pagina-inicial #caixa-top-autores nav ul li .dados {
+    padding-top:10px;
+}
+
+
+.ie7 #pagina-inicial #caixa-top-autores h3 .botao,
+.ie8 #pagina-inicial #caixa-top-autores h3 .botao {
+    margin-top:-25px;
+}
+
+#pagina-inicial #caixa-top-autores nav ul li h4 a {
+    text-transform:uppercase;
+    color:#A02800;
+    font-size:10px;
+    font-weight:normal;
+    text-decoration:none;    
+}
+
+#pagina-inicial #caixa-top-autores nav ul li p {
+    color:#333333;
+    font-weight:bold;
+}
+
+#pagina-inicial #caixa-videos {
+    margin-top:50px;
+    float:left; 
+    position:relative;
+    width:304px;     
+    padding:5px 0px 10px 10px; 
+    background:#B4B4B1 url(img/bg-videos.png) no-repeat;
+}
+
+#pagina-inicial #caixa-videos a {
+    color: #FFF;
+}
+
+#pagina-inicial #caixa-videos p {
+    float: left;
+    color:#FFF;
+}
+
+#pagina-inicial #caixa-videos h3 {   
+    color:#FFF;
+    margin-bottom:10px;
+}
+
+#pagina-inicial #caixa-videos .botao {
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+
+#pagina-inicial #caixa-blog {
+    margin-top:50px;
+    float:right;
+    position:relative; 
+    width:560px;     
+    padding:5px 20px 14px 10px; 
+    background:#FBE5B9 url(img/bg-blog.png) no-repeat;
+}
+
+
+
+#pagina-inicial #caixa-blog .botao {
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+
+#pagina-inicial #caixa-blog .img {
+    float: left;
+}
+
+#pagina-inicial #caixa-blog .texto {
+    width:200px;
+    float: right;
+    color:#333;
+}
+
+#pagina-inicial #caixa-blog h3 {
+    margin-bottom: 10px;
+}
+
+#pagina-inicial #caixa-blog h4 {
+    margin-bottom: 10px;
+}
+
+#pagina-inicial #caixa-blog h3, 
+#pagina-inicial #caixa-blog h4 {
+    color:#333;
+}
+
+
+#pagina-inicial .anuncio img {
+    border: none;
+}
+
+/* =Autores
+-----------------------------------------------------------------------------*/
+
+#pagina-autor h2 {
+    float:left; 
+}
+
+#pagina-autor nav.lista-autores {
+    margin-top:80px;
+    clear:both;
+}
+
+#pagina-autor nav.lista-autores ul li {
+    clear:both;
+    line-height:40px;
+    margin-bottom:30px;
+}
+
+#pagina-autor nav.lista-autores ul li a {
+    text-decoration:none;
+    color:#333;
+    font-size:12px;
+}
+
+#pagina-autor nav.lista-autores ul li img {
+    float:left; 
+    margin-right:10px;
+    border:3px solid #ccc;
+    width:82px;
+    height:53px;
+}
+
+/*#pagina-autor nav.lista-autores ul li.destaque img {
+    border:4px solid #dfe119;
+}*/
+
+#pagina-autor nav.lista-letras {
+    float:left;  
+    margin-left:30px;
+}
+
+#pagina-autor nav.lista-letras ul li {
+    display:inline;
+    margin-left:10px;
+    font-size:14px;
+}
+
+#pagina-autor nav.lista-letras ul li a {
+    color:#5A5859;   
+}
+
+#pagina-autor nav.lista-letras ul li.selecionado {
+    font-size:23px;
+    font-weight:bold;
+}
+
+#pagina-autor .quebrar-em-colunas {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count:3;
+}
+
+.ie7 #pagina-autor ul.quebrar-em-colunas, .ie8 #pagina-autor ul.quebrar-em-colunas {
+    margin-top:-60px;
+}
+
+.ie7 #pagina-autor ul.quebrar-em-colunas li, .ie8 #pagina-autor ul.quebrar-em-colunas li  {
+    clear:none;
+    display:block;
+    width:290px;
+    height:80px;
+    margin:0px;
+    float:left; margin-right:10px;
+}
+/* =Pagina frase
+-----------------------------------------------------------------------------*/
+#pagina-frase h2 {
+    float: left;
+}
+
+#pagina-frase nav.ordenacao {
+    float:right;
+}
+
+#pagina-frase nav.ordenacao ul li {
+    float:left;
+}
+
+#pagina-frase nav.ordenacao ul li a {
+    
+    margin-left:20px;
+    padding:5px;    
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:10px;
+    color:#666;
+}
+
+#pagina-frase nav.ordenacao ul li.selecionado a {
+    color: #FFF;
+    background: #C4202F;
+}
+
+/* =Pagina detalhe frase
+-----------------------------------------------------------------------------*/
+#pagina-detalhe-frase h4 {
+    clear:both;
+    margin-bottom:20px;
+    margin-top:30px;
+}
+
+#pagina-detalhe-frase h2 {
+    text-transform:none;
+}
+
+#pagina-detalhe-frase .frase {
+    margin-bottom:20px;
+}
+
+#pagina-detalhe-frase blockquote a {
+    font-size:23px !important;
+    line-height:35px;
+}
+
+#pagina-detalhe-frase #informacao {
+    float:left; 
+    margin-right:20px;
+    width:800px;
+}
+
+#pagina-detalhe-frase #propaganda {
+    float:right; 
+    margin-bottom:50px;
+}
+
+#pagina-detalhe-frase nav.menu {
+    width:150px; 
+    float:left;
+    margin-right:30px;
+}
+
+#pagina-detalhe-frase.imagem-selecionado nav.menu li#itemmenu-imagem a{
+    background:#C4202F;
+}
+
+#pagina-detalhe-frase.musica-selecionado nav.menu li#itemmenu-musica a{
+    background:#C4202F;
+}
+
+#pagina-detalhe-frase.livro-selecionado nav.menu li#itemmenu-livro a{
+    background:#C4202F;
+}
+
+#pagina-detalhe-frase .palco {
+    width:620px;
+    float:right;
+}
+
+#pagina-detalhe-frase .imagem {
+    background:#BD0E1E;
+    padding:3px 3px 3px 3px;
+    text-align:center;
+    color:#FFF;
+    width:203px;
+    font-size:11px;
+}
+
+#pagina-detalhe-frase .imagem img {
+    display:block;
+}
+
+#pagina-detalhe-frase .video {
+    float:left;
+    background:#BD0E1E;
+    padding:3px 3px 3px 3px;
+    text-align:center;
+    width:303px;
+    font-size:11px;
+}
+
+#pagina-detalhe-frase .video a {
+    color:#FFF;
+}
+
+#pagina-detalhe-frase .letra {
+    float:right;
+    width:300px;
+    height:300px;
+    overflow-y:scroll;
+}
+
+
+/* =Pagina Videos
+-----------------------------------------------------------------------------*/
+#pagina-videos {
+}
+
+#pagina-videos #video-destaque {
+    background:#eee; padding:10px;
+    height:250px;
+    margin-bottom:50px;
+}
+
+#pagina-videos iframe {
+    float:left;
+    margin-right:30px;
+}
+
+#pagina-videos .video {
+    height:250px;
+}
+
+#pagina-videos .video h3, #pagina-videos .video p {
+    float:left;
+    width:500px;
+}
+
+
+/* =Pagina Imagens
+-----------------------------------------------------------------------------*/
+#pagina-imagens nav#lista-imagens ul li {
+    display:inline;
+    margin-right:20px;
+}
+
+#pagina-imagens nav#lista-imagens ul li a img {
+    width:200px;
+    height:200px;
+    margin-bottom:30px;
+    border:3px solid #cb2127;
+}
+
+#pagina-imagens nav#lista-imagens ul li a:hover img {    
+    border:3px solid #333;
+}
+
+
+
+#pagina-detalhe-imagem img.imagem {
+    border:3px solid #cb2127;   
+}
+
+#pagina-detalhe-imagem p {
+    text-align: center;
+}
+
+
+/* =Pagina blog
+-----------------------------------------------------------------------------*/
+#pagina-blog {
+}
+
+#pagina-blog h3, #pagina-detalhe-blog h3, #pagina-busca h3  {
+    margin-bottom:20px;    
+}
+
+#pagina-blog ul li article {
+    padding-bottom:20px;
+    border-bottom:1px solid #eee;
+    margin-bottom:15px;
+}
+
+#pagina-blog h3 span.observacao, #pagina-detalhe-blog h3 span.observacao, #pagina-busca h3 span.observacao
+ {
+    font-size:12px;
+    float:right;
+    text-transform:none;
+    color:#333;
+}
+
+#pagina-blog h3 span.autor,  #pagina-detalhe-blog h3 span.autor {
+    color:#cb2127;
+}
+
+#pagina-blog h3 span.data,  #pagina-detalhe-blog h3 span.data {
+    color:#666;
+}
+
+#pagina-detalhe-blog img {
+    border:3px solid #ccc;
+    float: left;
+    margin: 0px 20px 10px 0px;
+}
+
+#pagina-detalhe-blog article p {
+    font-family: "Noto Serif";
+    font-size:14px;
+    line-height:25px;
+    color:#333;
+}
+
+
+/* =Frase por autor
+-----------------------------------------------------------------------------*/
+#pagina-frase-autor .descricao-autor {
+    font-size:14px;
+    margin-bottom:50px;
+}
+
+#pagina-frase-autor .descricao-autor h3 {
+    margin-bottom:10px;
+}
+
+#pagina-frase-autor .descricao-autor h3 .barrinha {
+    width:55%;
+}
+
+
+#pagina-frase-autor .descricao-autor p {
+    margin:5px 0px;
+}
+
+#pagina-frase-autor .descricao-autor img {
+    float:left; 
+    margin-right:15px;
+    border:3px solid #ccc;
+}
+
+.ie7 #pagina-frase-autor .descricao-autor .informacoes,
+.ie8 #pagina-frase-autor .descricao-autor .informacoes {
+    float: left;
+}
+
+
+/* =Frase
+-----------------------------------------------------------------------------*/
+.lista-frases {
+    clear:both;
+}
+
+.frase {
+    padding-top:10px;
+    padding-bottom:15px;
+    margin-top:10px;
+    clear:both;
+    color:#5a5a59;        
+    font-family: "Noto Serif", 'ABeeZee', Arial;
+    border-bottom:1px solid #E0E0E0;
+    position:relative;
+}
+
+.frase blockquote {
+    margin-bottom:25px;
+    line-height:20px;
+}
+
+.frase blockquote a {  
+    font-size:17px;  
+    color:#5a5a59;
+    text-decoration:none;    
+}
+
+
+.frase img {
+    border: none;
+}
+
+.frase .acoes {
+    position:absolute;
+    bottom:20px;
+    right:0px;
+}
+
+.frase .acoes ul li {
+    float:left;    
+}
+
+.frase .acoes ul li a {
+    display:block;
+    width:110px;
+    height:17px;    
+    text-indent:-90000px;
+    overflow:hidden;
+}
+
+.frase .acoes ul li.compartilhar a {    
+    background:url(img/btn-compartilhar.png) no-repeat;        
+}
+
+.frase .acoes ul li.compartilhar a:hover {    
+    background:url(img/btn-compartilhar-on.png) no-repeat;
+}
+
+.frase .acoes ul li.enviar-correcao a {
+    background:url(img/btn-correcao.png) no-repeat;
+}
+
+.frase .acoes ul li.enviar-correcao a:hover {
+    background:url(img/btn-correcao-on.png) no-repeat;
+}
+
+.frase .selos {
+    float: left;
+    margin-top:1px;
+    margin-left:10px;
+}
+
+.frase .selos ul li {
+    display:inline;
+}
+
+.frase div.autor a {
+    float:left;
+    background:#C4202F url(img/bg-autor.png) right no-repeat;
+    padding:2px 30px 3px 10px;
+    margin-top:2px;
+    color:#FFF;        
+    font-family:Arial;
+    font-size:11px;
+    text-decoration:none;
+}
+
+.frase div.autor a {
+
+}
+
+.frase div.autor img {
+    float:left;
+    border:1px solid #ccc;
+    width:35px;
+    height:22px;
+    margin-top:-1px;
+    -webkit-filter: grayscale(100%);
+    
+}
+
+/* =Utilidades
+-----------------------------------------------------------------------------*/
+.menu ul li a {
+    display:block;
+    background:#444444;
+    color:#FFF;
+    text-decoration:none;
+    padding:3px 5px;
+}
+
+.menu ul li {
+    margin-bottom:3px;
+}
+
+
+.formulario {
+    padding-top: 20px;
+}
+
+.formulario label {
+    width:80px;
+    float:left;
+}
+
+.formulario p {
+    clear:both;
+    height:35px;
+}
+
+
+.formulario input, .formulario textarea, .formulario select {
+    margin-right:20px;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px; border-radius: 4px; 
+    behavior: url(/content/pie/PIE.htc);
+    border:1px #ccc solid;
+    padding:3px;
+    float:left;
+}
+
+.formulario input[type='checkbox'] {
+    margin-right:8px;
+    margin-top:5px;
+    border:none;
+}
+
+.field-validation-error {
+    color: #cb2127;
+    margin-right:20px;
+}
+
+
+.ultimo {
+    border:none !important;
+    background:none !important;
+}
+
+.breadcrumb ul {
+    margin-bottom:20px;
+}
+
+.breadcrumb ul li {
+    display:inline;
+    margin-right:5px;
+    font-size:16px;
+}
+
+#voltar-para-topo {
+    background:url(img/voltar-topo.png) no-repeat;
+    width:45px;
+    height:45px;
+    display:block;
+    position:fixed;
+    bottom:10px;
+    right:30px;
+    cursor:pointer;
+    display:none;    
+}
+
+a.botao {
+    background:#CB2127;
+    padding:5px;
+    text-transform:uppercase;
+    color:#FFF;
+    font-size:9px;
+    text-decoration:none;
+}
+
+a.botao:hover {
+    background:#A51B1E;
+}
+
+.block {
+    display: block !important;
+}
+
+.clear {
+    clear: both;
+    display:block;
+}
+.propaganda-horizontal-inferior {
+    text-align:center;
+    margin-top:30px;
+    margin-bottom:10px;
+    height:90px;
+}
+
+.ie7 .propaganda-horizontal-inferior,
+.ie8 .propaganda-horizontal-inferior {
+    padding-left:120px;
+}
+
+.propaganda-vertical-direita {
+    float:right;
+}
+
+.center {
+    text-align: center;
+}

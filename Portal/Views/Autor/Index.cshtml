@@ -1,0 +1,62 @@
+﻿@using Poetizando.Negocio
+@{ ViewBag.FbTitle = "Autores de A a Z"; }
+@model IList<Poetizando.Entidade.Autor>
+<section id="pagina-autor">
+    <nav class="breadcrumb">
+        <ul>
+            <li><a href="/" title="Volte para a página inicial do poetizando">inicial</a></li>
+            <li>></li>
+            <li><a href="/autor/letra/a" title="Procure seu autor favorito">autores</a></li>
+        </ul>
+    </nav>
+
+    <h2>autores por letra</h2>                
+
+    <nav class="lista-letras">
+        <ul>
+            <li class="@(ViewBag.Letra == "a" ? "selecionado" : "")"><a href="/autor/letra/a">A</a></li>
+            <li class="@(ViewBag.Letra == "b" ? "selecionado" : "")"><a href="/autor/letra/b">B</a></li>
+            <li class="@(ViewBag.Letra == "c" ? "selecionado" : "")"><a href="/autor/letra/c">C</a></li>
+            <li class="@(ViewBag.Letra == "d" ? "selecionado" : "")"><a href="/autor/letra/d">D</a></li>
+            <li class="@(ViewBag.Letra == "e" ? "selecionado" : "")"><a href="/autor/letra/e">E</a></li>
+            <li class="@(ViewBag.Letra == "f" ? "selecionado" : "")"><a href="/autor/letra/f">F</a></li>
+            <li class="@(ViewBag.Letra == "g" ? "selecionado" : "")"><a href="/autor/letra/g">G</a></li>
+            <li class="@(ViewBag.Letra == "h" ? "selecionado" : "")"><a href="/autor/letra/h">H</a></li>
+            <li class="@(ViewBag.Letra == "i" ? "selecionado" : "")"><a href="/autor/letra/i">I</a></li>
+            <li class="@(ViewBag.Letra == "j" ? "selecionado" : "")"><a href="/autor/letra/j">J</a></li>
+            <li class="@(ViewBag.Letra == "k" ? "selecionado" : "")"><a href="/autor/letra/k">K</a></li>
+            <li class="@(ViewBag.Letra == "l" ? "selecionado" : "")"><a href="/autor/letra/l">L</a></li>
+            <li class="@(ViewBag.Letra == "m" ? "selecionado" : "")"><a href="/autor/letra/m">M</a></li>
+            <li class="@(ViewBag.Letra == "n" ? "selecionado" : "")"><a href="/autor/letra/n">N</a></li>
+            <li class="@(ViewBag.Letra == "o" ? "selecionado" : "")"><a href="/autor/letra/o">O</a></li>
+            <li class="@(ViewBag.Letra == "p" ? "selecionado" : "")"><a href="/autor/letra/p">P</a></li>
+            <li class="@(ViewBag.Letra == "q" ? "selecionado" : "")"><a href="/autor/letra/q">Q</a></li>
+            <li class="@(ViewBag.Letra == "r" ? "selecionado" : "")"><a href="/autor/letra/r">R</a></li>
+            <li class="@(ViewBag.Letra == "s" ? "selecionado" : "")"><a href="/autor/letra/s">S</a></li>
+            <li class="@(ViewBag.Letra == "t" ? "selecionado" : "")"><a href="/autor/letra/t">T</a></li>
+            <li class="@(ViewBag.Letra == "u" ? "selecionado" : "")"><a href="/autor/letra/u">U</a></li>
+            <li class="@(ViewBag.Letra == "v" ? "selecionado" : "")"><a href="/autor/letra/v">V</a></li>
+            <li class="@(ViewBag.Letra == "w" ? "selecionado" : "")"><a href="/autor/letra/w">W</a></li>
+            <li class="@(ViewBag.Letra == "x" ? "selecionado" : "")"><a href="/autor/letra/x">X</a></li>
+            <li class="@(ViewBag.Letra == "y" ? "selecionado" : "")"><a href="/autor/letra/y">Y</a></li>
+            <li class="@(ViewBag.Letra == "z" ? "selecionado" : "")"><a href="/autor/letra/z">Z</a></li>
+        </ul>
+    </nav>
+    
+    @if (Model != null)
+    {
+       <nav class="lista-autores">
+            <ul class="@(Model.Count > 5 ? "quebrar-em-colunas" : "")">
+                @foreach (var autor in Model)
+                {
+                    
+                <li class="@(autor.Destaque ? "destaque" : "")"><a href="/autor/frases/@autor.Nome.NomeURL()" title="conheça as frases de @autor.Nome.NomeURL()" rel="author" class="autor"><img src="@autor.ImagemPequena" alt="@autor.Nome" title="@autor.Nome" />@autor.Nome</a></li>
+                }
+            </ul>
+        </nav>
+    }
+</section>
+
+
+
+

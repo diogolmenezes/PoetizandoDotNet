@@ -1,0 +1,94 @@
+﻿@using Poetizando.Entidade.Dto
+@using Poetizando.Negocio
+@model IList<Poetizando.Entidade.Frase>
+@{
+    var video = (Poetizando.Entidade.Video)ViewBag.Video;
+    var texto = (Poetizando.Entidade.Texto)ViewBag.Texto;
+}
+@section metaTags {<link rel="canonical" href="http://poetizando.com.br/"/>}
+@section headScripts{<script type="text/javascript" src="/scripts/poetizando/pagina-home.js"></script>}
+<section id="pagina-inicial">   
+   
+    <section id="caixa-ultimas-frases">
+        <h3>frases <img src="/content/img/barrinha.png" /> <a href="/frase/" class="botao" title="Veja todas as frases"> + frases</a></h3>
+        <nav>
+            <ul>
+                @foreach (var frase in Model)
+                {
+                    <li>@Html.Partial("_Frase", frase)</li>
+                }
+            </ul>            
+        </nav>
+       
+        @Html.CriarPaginacao((int)ViewBag.TotalDeRegistros, (int)ViewBag.PaginaAtual, 4, "paginacao-frases")
+
+        <a href="/frase/?o=popularidade" class="botao criar-frase" style="margin-left:15px;" title="Veja todas as frases">+ ver todas</a>
+
+        <a href="/frase/criar" class="botao criar-frase" title="Colabore com o crescimento do Poetizando, envie uma frase.">+ enviar uma frase</a>       
+
+    </section>    
+
+    <section id="caixa-top-autores">
+        <h3>Autores <a href="/autor/letra/a" class="botao" title="Veja todos os autores">+ autores</a></h3>
+        <nav>
+            <ul>
+                @foreach (var autor in (IList<AutorRankingDto>)ViewBag.TopAutores)
+                {
+                <li>
+                    <img src="/content/img/autores/pequena/@autor.Imagem" title="@autor.Nome" />
+                    <div class="dados">
+                        <h4><a href="/autor/frases/@autor.Nome.NomeURL()" title="Conheça as citações de @autor.Nome" rel="author" class="nome-autor">@autor.Nome</a></h4>
+                        <p>@autor.TotalDeFrases</p>
+                    </div>
+                </li>
+                }
+            </ul>
+        </nav>
+
+        <br style="clear:both; display:block;" />
+
+        @*<a href="/contato/" title="Anuncie aqui!" class="anuncio"><img src="/content/img/anuncie.png" /></a>*@
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-8117876802922910";
+        /* Anuncio Quadrado Poetizando */
+        google_ad_slot = "5803259028";
+        google_ad_width = 200;
+        google_ad_height = 200;
+        //-->
+        </script>
+        <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+
+        <br style="clear:both; display:block;" />
+    </section>
+      
+    <section id="caixa-videos">
+        <h3>Vídeos</h3>
+        <iframe width="295" height="230" src="@video.Url" frameborder="0" allowfullscreen></iframe>
+        <p><a href="/video/detalhe/@video.Titulo.NomeURL()" title="Assista o vídeo @video.Titulo">@video.Descricao.Substring(0,80) ...</a></p>
+        <a href="/video" class="botao" title="Veja todos os vídeos">+ vídeos</a>
+    </section>
+
+
+    <section id="caixa-blog">
+        <h3>Blog</h3>
+        <div class="img">
+            <img src="/content/img/blog/@texto.Imagem"  title="@texto.Titulo - @texto.Autor.Nome" />
+            <p>texto de <span class="autor"><a href="/autor/frases/@texto.Autor.Nome.NomeURL()" title="Saiba mais sobre @texto.Autor.Nome" rel="author" class="autor">@texto.Autor.Nome</a></span></p>
+        </div>
+        <div class="texto">
+            <h4><a href="/blog/post/@texto.Titulo.NomeURL()" title="@texto.Titulo - @texto.Autor.Nome">@texto.Titulo</a></h4>
+            @Html.Raw(texto.Descricao)
+            <a href="/blog/post/@texto.Titulo.NomeURL()" title="Continue lendo - @texto.Titulo - @texto.Autor.Nome">(...) continuar lendo.</a>
+        </div>        
+        <br style="clear:both; display:block;" />
+        <a href="/blog" class="botao" title="Veja todos os textos">+ textos</a>
+    </section>
+
+    <br clear="all" />
+    <br clear="all" />
+    <br clear="all" />
+    <br clear="all" />
+
+</section>

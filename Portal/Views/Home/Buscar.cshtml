@@ -1,0 +1,80 @@
+﻿@using Poetizando.Negocio
+@{ ViewBag.FbTitle = "Buscando por " + ViewBag.Busca; }
+@{
+    var frases = (IList<Poetizando.Entidade.Frase>)ViewBag.Frases;
+    var videos = (IList<Poetizando.Entidade.Video>)ViewBag.Videos;
+    var autores = (IList<Poetizando.Entidade.Autor>)ViewBag.Autores;
+    var textos = (IList<Poetizando.Entidade.Texto>)ViewBag.Textos;
+}
+
+<section id="pagina-busca">
+    <nav class="breadcrumb">
+        <ul>
+            <li><a href="/" title="Volte para a página inicial do Poetizando">inicial</a></li>
+            <li>></li>
+            <li><a href="javascript:void(0);"  title="buscando por @ViewBag.Busca" >buscando por "@ViewBag.Busca"</a></li>
+        </ul>
+    </nav>
+
+    <p>A busca retorna apenas os <strong>5 primeiros</strong> resultados de cada categoria. Especifique mais detalhadamente o termo buscado para obter melhores resultados.</p>
+
+    @if (videos.Count > 0)
+    {
+        <h2>Vídeos</h2>    
+        @Html.Partial("_ListaVideo", videos)    
+        <hr />
+    }
+
+    @if (autores.Count > 0)
+    {
+        <h2>Autores</h2>    
+        <nav id="autores">
+            <ul>
+            @foreach (var autor in autores)
+            {        
+                <li><a href="/autor/frases/@autor.Nome.NomeURL()" title="Saiba mais sobre @autor.Nome"><img src="@autor.ImagemPequena" title="@autor.Nome" /><span>@autor.Nome</span></a></li>            
+            }
+            </ul>
+        </nav>
+        <hr />
+    }
+
+    @if (frases.Count > 0)
+    {
+        <h2>Frases</h2>
+        @Html.Partial("_ListaFrase", frases)
+    }
+
+     @if (textos.Count > 0)
+     {      
+        <br />
+        <h2>Textos</h2>  
+        <ul>
+            @foreach (var texto in textos)
+            {
+            <li>
+                <article>
+                    <h3><a href="/blog/post/@texto.Titulo.NomeURL()" title="@texto.Titulo - @texto.Autor.Nome">@texto.Titulo</a><span class="observacao"> por <span class="autor"><a href="/autor/frases/@texto.Autor.Nome.NomeURL()" title="saiba mais sobre @texto.Autor.Nome" rel="author" class="autor">@texto.Autor.Nome</a></span> em <span class="data">@texto.DataCriacao.ToString("dd/MM/yyyy")</span></span></h3>
+                    @Html.Raw(texto.Descricao)
+                </article>
+            </li>
+            }
+        </ul>    
+        <hr />
+     }
+
+    <section class="propaganda-horizontal-inferior">
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-8117876802922910";
+        /* poetizando-cabecalho */
+        google_ad_slot = "9501552220";
+        google_ad_width = 728;
+        google_ad_height = 90;
+        //-->
+        </script>
+        <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+    </section>
+
+</section>

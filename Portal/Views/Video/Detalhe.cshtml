@@ -1,0 +1,69 @@
+﻿@model Poetizando.Entidade.Video
+@using Poetizando.Negocio
+@{ 
+    ViewBag.FbTitle = Model.Titulo;
+    ViewBag.FbImage = @Model.Url.Replace("http://www.youtube.com/embed/", "http://img.youtube.com/vi/") + "/0.jpg?t=12345";
+    ViewBag.FbDescription = Model.Descricao;
+    ViewBag.Keywords = "video, filme, curta metragem, curta, " + Model.Titulo + "," + Model.Descricao;     
+}
+
+@section metaTags {
+    <meta property="og:video" content="@Model.Url" /> 
+    <meta property="og:video:height" content="260" /> 
+    <meta property="og:video:width" content="420" /> 
+    <meta property="og:video:type" content="application/x-shockwave-flash" />
+}
+
+<section id="pagina-detalhe-video">   
+
+    <nav class="breadcrumb">
+        <ul>
+            <li><a href="/" title="Volte para a página inicial do Poetizando">inicial</a></li>
+            <li>></li>
+            <li><a href="/video"  title="Inspire-se vendo maravilhosos vídeos" >vídeos</a></li>
+        </ul>
+    </nav>
+
+
+    <h2>@Model.Titulo</h2> 
+
+    <iframe width="800" height="450" src="@Model.Url" frameborder="0" allowfullscreen></iframe>
+
+    <br /><br />
+
+    @if(!String.IsNullOrEmpty(Model.Texto))
+    {
+        @Html.Raw(Model.Texto)
+    }
+    else
+    {
+        <p>@Model.Descricao</p>        
+    }
+
+    <br /><br />
+
+    <div class="fb-like" data-href="http://poetizando.com.br/video/detalhe/@Model.Titulo.NomeURL()" data-send="true" data-width="450" data-show-faces="true"></div>
+
+
+    <section class="propaganda-horizontal-inferior">
+        <hr />
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-8117876802922910";
+        /* poetizando-cabecalho */
+        google_ad_slot = "9501552220";
+        google_ad_width = 728;
+        google_ad_height = 90;
+        //-->
+        </script>
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    </section>
+
+    <br /><br /><br />
+
+    <h4>Comentários</h4>
+    
+    <br />
+    
+    <div class="fb-comments" data-href="http://poetizando.com.br/video/detalhe/@Model.Titulo.NomeURL()" data-width="900" data-num-posts="10"></div>
+
+</section>

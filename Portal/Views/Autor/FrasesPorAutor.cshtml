@@ -1,0 +1,88 @@
+﻿@model Poetizando.Entidade.Autor
+@using Poetizando.Negocio
+@{ 
+    ViewBag.FbTitle = "Frases de " + Model.Nome;
+    ViewBag.FbDescription = "Conheça as frases, textos e poesias de " + Model.Nome;    
+    ViewBag.FbImage = "http://poetizando.com.br" + @Model.ImagemGrande;
+    ViewBag.Keywords = "frase, frases, citações, poesia, poesias, poema, poemas, texto, textos, citacao, verso, versos, palavra, palavras, " + Model.Nome;
+}
+
+@section scripts{
+<script type="text/javascript">
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height() - 350) {
+            CarregarFrases();
+        }
+    });
+
+    var _inCallback = false;
+    var _registroInicial = 30;
+    function CarregarFrases() {
+        if (!_inCallback) {            
+            _inCallback       = true;            
+            $.get("/Autor/MostrarFrases/@Model.Nome.NomeURL()/" + _registroInicial, function (data) {
+
+                if (data != '')
+                    $(".lista-frases").append(data);
+
+                _inCallback = false;
+                _registroInicial += 30;
+            });
+        }
+    }
+</script>
+}
+
+<section id="pagina-frase-autor">
+    
+    <nav class="breadcrumb">
+        <ul>
+            <li><a href="/" title="Volte para a página inicial do Poetizando">inicial</a></li>
+            <li>></li>
+            <li><a href="/autor/letra/a" title="Procure seu autor favorito">autores</a></li>
+            <li>></li>
+            <li><a href="/autor/frases/@Model.Nome.NomeURL()" title="Inspire-se com as citações de @Model.Nome" rel="author" class="autor">@Model.Nome</a></li>
+        </ul>
+    </nav>
+
+    <article class="descricao-autor">
+        <img src="@Model.ImagemGrande" title="@Model.Nome" class="imagem-autor" />        
+        <div class="informacoes">
+            <h3>@Model.Nome</h3>
+            @if (!String.IsNullOrEmpty(Model.Descricao))
+            {
+                 <p>@Html.Raw(Model.Descricao)</p>
+            }        
+            else
+            {
+                <p>O autor @Model.Nome ainda não possui nenhuma descrição cadastrada. <a href="/contato/?assunto=Sugerir uma descricao para um autor" title="Sugira uma descrição para o autor">que tal nos sugerir uma</a> ?</p>
+            }
+
+            <p><strong>@Model.Frases.Count</strong> participações</p>
+
+            @if(!String.IsNullOrEmpty(Model.Wiki))
+            {
+                <a href="@Model.Wiki" title="Wikipedia - @Model.Nome" target="_blank">@Model.Wiki</a>
+            }
+        </div>
+        <br clear="all" />
+    </article>   
+
+
+    <section class="lista-frases">
+        @Html.Partial("_ListaFrase", (IList<Poetizando.Entidade.Frase>)ViewBag.Frases )
+    </section>
+
+    <section class="propaganda-horizontal-inferior">
+        <br clear="all" />
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-8117876802922910";
+        /* poetizando-cabecalho */
+        google_ad_slot = "9501552220";
+        google_ad_width = 728;
+        google_ad_height = 90;
+        //-->
+        </script>
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    </section>
+</section>

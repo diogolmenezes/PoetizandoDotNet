@@ -1,0 +1,49 @@
+﻿@using Poetizando.Negocio
+@model Poetizando.Entidade.Frase
+@{ var classe = (Model.Oficial) ? "oficial" : ""; }
+
+
+<article class="frase @classe" itemscope="itemscope" itemtype="http://schema.org/CreativeWork">   
+    
+    <nav class="acoes">
+        <ul>
+            @if(!Model.Oficial)
+            {
+                <li class="enviar-correcao" ><a href="/frase/corrigir/@Model.Id" title="Essa frases está errada ? Ajuda, envie uma correção." class="enviar-corecao">sugerir correção</a></li>
+            }
+            <li class="compartilhar"><a href="http://www.facebook.com/sharer.php?u=http://poetizando.com.br/frase/@Model.Autor.Nome.NomeURL()/@Model.Id" title="Compartilhe essa frase em seu Facebook" target="_blank" class="popup">compartilhar</a></li>
+        </ul>
+    </nav>
+
+    <blockquote cite="/autor/frases/@Model.Autor.Nome.NomeURL()">
+        <a href="/frase/@Model.Autor.Nome.NomeURL()/@Model.Id" title="@Model.Texto - @Model.Autor.Nome" itemprop="url">@Html.Raw(Model.Texto)</a>
+    </blockquote>        
+
+    <div class="informacoes">
+        <div class="autor">
+            <img src="@Model.Autor.ImagemPequena" title="@Model.Autor.Nome" />
+            <a href="/autor/frases/@Model.Autor.Nome.NomeURL()" title="Conheça as citações de  @Model.Autor.Nome" rel="author" itemscope="itemscope" itemtype="http://schema.org/Person" class="autor">@Model.Autor.Nome</a>            
+        </div>
+
+        <nav class="selos">
+            <ul>
+                @if(Model.Oficial)
+                {
+                    <li><a href="/sobre#frase-garantida" title="Essa frase tem sua autenticidade garantida. Clique e entenda o que é isso."><img src="/content/img/selo-oficial.png" title="Essa frase tem sua autenticidade garantida. Clique e entenda o que é isso." /></a></li>
+                }
+
+                @if(new ImagemBusiness().Recuperar(Model) != null)
+                {
+                    <li><a href="/frase/@Model.Autor.Nome.NomeURL()/@Model.Id?o=imagem" title="Essa frase possui uma imagem. Clique para ver."><img src="/content/img/selo-imagem.png" title="Essa frase possui uma imagem. Clique para ver." /></a></li>
+                }
+
+                @if(Model.PossuiMusica)
+                {
+                    <li><a href="/frase/@Model.Autor.Nome.NomeURL()/@Model.Id?o=musica" title="Essa frase pertence à música @Model.Musica.Nome. Clique para ouvir e ver a letra."><img src="/content/img/selo-musica.png" title="Essa frase pertence à música @Model.Musica.Nome. Clique para ouvir e ver a letra." /></a></li>
+                }
+            </ul>
+        </nav>
+    </div>  
+
+    <br style="clear:both; display:block;" />
+</article>

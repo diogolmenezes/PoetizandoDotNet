@@ -1,0 +1,22 @@
+﻿@using Poetizando.Negocio
+@{ 
+    ViewBag.FbTitle = "Sucesso";
+    var autor = (Poetizando.Entidade.Autor)ViewBag.Autor;
+}
+<section id="pagina-obrigado">
+
+    <nav class="breadcrumb">
+        <ul>
+            <li><a href="/" title="Volte para a página inicial do poetizando">inicial</a></li>
+            <li>></li>
+            <li><a href="/frase/"  title="" >corrigir frase</a></li>
+        </ul>
+    </nav>
+
+    <h2>Obrigado!</h2>
+
+    <p>Obrigado, pela sugestão. Nossa equipe irá analisar e disponibilizar a correção o mais rápido possível.</p>
+
+    <p>Clique <a href="/autor/frases/@autor.Nome.NomeURL()" title="Conheça as frases de @autor.Nome.NomeURL()">aqui</a> para continuar corrigindo as frases de <a href="/autor/frases/@autor.Nome.NomeURL()" rel="author" title="Conheça as frases de @autor.Nome.NomeURL()">@autor.Nome</a></p>
+
+</section>

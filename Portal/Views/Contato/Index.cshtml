@@ -1,0 +1,41 @@
+﻿@model Poetizando.Portal.Models.Contato
+@{ ViewBag.FbTitle = "Entre em contato"; }
+<section id="pagina-contato">
+    
+    <nav class="breadcrumb">
+        <ul>
+            <li><a href="/" title="Volte para a página inicial do poetizando">inicial</a></li>
+            <li>></li>
+            <li><a href="/contato"  title="entre em contato conosco" >contato</a></li>
+        </ul>
+    </nav>
+
+    <h2>Fale</h2>
+
+    <p>Quer enviar uma sugestão, crítica, tirar uma dúvida específica ou registrar sua opinião? Fale conosco, responderemos o mais breve possível.</p>
+
+    <fieldset class="formulario">
+     @using (Html.BeginForm("EnviarContato", "Contato", FormMethod.Post))
+     {        
+         @Html.AntiForgeryToken()
+         @Html.ValidationSummary(true, "Corriga os erros e tente novamente.")
+         
+         <p>
+             @Html.LabelFor(x=> x.Email)
+             @Html.TextBoxFor(x => x.Email)
+             @Html.ValidationMessageFor(m => m.Email)
+             @Html.LabelFor(x=> x.Assunto)
+             @Html.TextBoxFor(x => x.Assunto)      
+             @Html.ValidationMessageFor(m => m.Assunto)      
+         </p>
+         <p style="height:150px;">
+             @Html.LabelFor(x=> x.Mensagem)
+             @Html.TextAreaFor(x => x.Mensagem, new {cols="48", rows="10"})
+             @Html.ValidationMessageFor(m => m.Mensagem)
+         </p>    
+         
+         <label for="btnEnviar">&nbsp;</label> <input type="submit" id="btnEnviar" name="btnEnviar" value="Enviar" class="botao" />
+     }        
+     </fieldset>
+
+</section>

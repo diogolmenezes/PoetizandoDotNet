@@ -1,0 +1,11 @@
+﻿@model IList<Poetizando.Entidade.Frase>
+
+<h3><img src="~/Content/img/icone-popularidade.png" /> Sentenças mais populares</h3>
+
+<section class="list-sentences">
+    @foreach (var frase in Model)
+	{
+		@Html.Partial("_Frase", frase ); 
+        <hr />
+	}    
+</section>
