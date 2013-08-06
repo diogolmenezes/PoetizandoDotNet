@@ -1,3 +1,11 @@
+#especificas do poetizando
+_layout/
+_banco/
+_ideias/
+_Administracao/
+_certificados-de-genuinidade/
+*.config
+
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 [Bb]in/
 [Oo]bj/
