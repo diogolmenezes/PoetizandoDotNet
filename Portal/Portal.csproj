@@ -881,6 +881,7 @@
     <Content Include="Views\Frase\Corrigir.cshtml" />
     <Content Include="Views\Frase\CorrecaoEnviada.cshtml" />
     <Content Include="Views\Video\Detalhe.cshtml" />
+    <Content Include="Views\Frase\FrasesPorTag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

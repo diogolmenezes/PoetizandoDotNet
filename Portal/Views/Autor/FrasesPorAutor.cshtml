@@ -41,7 +41,7 @@
             <li>></li>
             <li><a href="/autor/letra/a" title="Procure seu autor favorito">autores</a></li>
             <li>></li>
-            <li><a href="/autor/frases/@Model.Nome.NomeURL()" title="Inspire-se com as citações de @Model.Nome" rel="author" class="autor">@Model.Nome</a></li>
+            <li><a href="/autor/frases/@Model.Nome.NomeURL()" title="Inspire-se com as frases de @Model.Nome" rel="author" class="autor">@Model.Nome</a></li>
         </ul>
     </nav>
 
@@ -70,6 +70,9 @@
 
 
     <section class="lista-frases">
+
+        <h1>Frases de @Model.Nome</h1>
+
         @Html.Partial("_ListaFrase", (IList<Poetizando.Entidade.Frase>)ViewBag.Frases )
     </section>
 

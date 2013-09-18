@@ -10,7 +10,7 @@ namespace Poetizando.Entidade
     {
         public Tag()
         {
-            this.TagFrases = new List<TagFrase>();
+            Frases = new HashSet<Frase>();
         }
 
         [Required(ErrorMessage = "Campo obrigatório.")]
@@ -18,7 +18,6 @@ namespace Poetizando.Entidade
         [StringLength(50)]
         public string Nome { get; set; }
 
-
-        public virtual ICollection<TagFrase> TagFrases { get; set; }
+        public virtual ICollection<Frase> Frases { get; set; }
     }
 }

@@ -10,7 +10,6 @@ namespace Poetizando.Database
     {
         public DbSet<Frase> Frases { get; set; }
         public DbSet<Tag> Tags { get; set; }
-        public DbSet<TagFrase> TagFrases { get; set; }
         public DbSet<Autor> Autores { get; set; }
         public DbSet<Video> Videos { get; set; }
         public DbSet<Texto> Textos { get; set; }
@@ -38,6 +37,20 @@ namespace Poetizando.Database
 
                 throw;
             }
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Frase>().
+              HasMany(c => c.Tags).
+              WithMany(p => p.Frases).
+              Map(
+               m =>
+               {
+                   m.MapLeftKey("Frase_Id");
+                   m.MapRightKey("Tag_Id");
+                   m.ToTable("tagfrase");
+               });
         }
     }
 }

@@ -22,6 +22,19 @@ namespace Poetizando.Portal
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("MostrarPorTag",
+                           "Frase/MostrarPorTag/{nome}/{registroInicial}",
+                           new { controller = "Frase", action = "MostrarPorTag", nome = "", registroInicial = 0 });
+
+
+            routes.MapRoute("Tag_Frases_de",
+                           "tag/frases-de-{tag}",
+                           new { controller = "Frase", action = "FrasesPorTag", tag = "" });
+
+            routes.MapRoute("Frases_de",
+                           "frases-de-{nome}",
+                           new { controller = "Autor", action = "FrasesPorAutor", nome = "" });
+
             routes.MapRoute("AutorLetra",
                            "autor/letra/{letra}",
                            new { controller = "Autor", action = "letra", letra = "" });

@@ -833,6 +833,14 @@ footer nav#menu ul li{
     float: left;
 }
 
+#pagina-frase-autor h1 {
+    color:#C4202F;
+    font-size:25px;
+    text-transform:uppercase;
+    font-weight:normal;
+    margin-bottom:20px;
+}
+
 
 /* =Frase
 -----------------------------------------------------------------------------*/
@@ -934,6 +942,10 @@ footer nav#menu ul li{
     margin-top:-1px;
     -webkit-filter: grayscale(100%);
     
+}
+
+.frase ul.tags li {
+    display:inline; margin-left:5px;
 }
 
 /* =Utilidades

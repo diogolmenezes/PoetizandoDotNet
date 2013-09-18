@@ -12,7 +12,7 @@ namespace Poetizando.Entidade
     {
         public Frase()
         {
-            this.TagFrases = new List<TagFrase>();
+            Tags = new HashSet<Tag>();
         }
 
         [Required(ErrorMessage = "Campo obrigatório.")]
@@ -48,14 +48,9 @@ namespace Poetizando.Entidade
         public bool PossuiLivro { get { return Livro != null; } }
 
         public bool PossuiMusica { get { return Musica != null; } }
-        
-        public virtual ICollection<TagFrase> TagFrases { get; set; }
-        public virtual IEnumerable<Tag> Tags
-        {
-            get
-            {
-                return (TagFrases != null) ? TagFrases.Select(x => x.Tag) : new List<Tag>();
-            }
-        }
+
+        public virtual ICollection<Tag> Tags { get; set; }
+
+  
     }
 }

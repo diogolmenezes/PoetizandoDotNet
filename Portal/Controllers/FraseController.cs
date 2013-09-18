@@ -85,6 +85,27 @@ namespace Poetizando.Portal.Controllers
             return View(frase);
         }
 
+        public ActionResult FrasesPorTag(string tag)
+        {
+            var objTag = new TagBusiness().CarregarPorNome(tag);
+            IList<Frase> frases = new List<Frase>();
+            ViewBag.Frases = new FraseBusiness().ListarPorTag(tag, 0, 30);
+            return View(objTag);
+        }
+
+        public ActionResult MostrarPorTag(string nome, int? registroInicial)
+        {
+            registroInicial = (!registroInicial.HasValue) ? 0 : registroInicial.Value;
+
+            var tag = new TagBusiness().CarregarPorNome(nome);
+
+            if (tag == null)
+                return null;
+
+            var frases = new FraseBusiness().ListarPorTag(tag.Nome, registroInicial.Value, 30);
+
+            return PartialView("_ListaFrase", frases);
+        }    
 
         public ActionResult Criar()
         {

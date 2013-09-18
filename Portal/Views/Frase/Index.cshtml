@@ -1,5 +1,5 @@
 ﻿@model IList<Poetizando.Entidade.Frase>
-@{ ViewBag.FbTitle = "Frases"; }
+@{ ViewBag.FbTitle = "Frases bonitas, mensagens de amor e frases de amizade no Poetizando"; }
 @section metaTags {<link rel="canonical" href="http://poetizando.com.br/frase"/>}
 <script type="text/javascript">  
     $(window).scroll(function () {
@@ -32,13 +32,11 @@
         <ul>
             <li><a href="/" title="Volte para a página inicial do Poetizando">inicial</a></li>
             <li>></li>
-            <li><a href="/frase"  title="Inspire-se vendo muitas frases legais" >frases</a></li>
-        </ul>       
-
+            <li><a href="/frase"  title="Inspire-se vendo muitas frases bonitas, mensagens de amor, frases de amizade e frases romanticas" >frases</a></li>
+        </ul>
     </nav>
 
-    <div class="titulo">
-        
+    <div class="titulo">        
         <h2>frases</h2>
         <nav class="ordenacao">
             <ul>
@@ -47,6 +45,9 @@
             </ul>
         </nav>
     </div>
+
+    <p class="clear">Aqui você encontratá uma infinidade de frases bonitas, mensagens de amor, frases de amizade, fases românticas, frases de aniversário e até poemas de amor, 
+           fique a vontade e inspire-se!</p>
 
     <section id="frases-aleatorias" class="lista-frases">
         @Html.Partial("_ListaFrase", Model)

@@ -55,6 +55,13 @@ namespace Poetizando.Portal.Controllers
             return View();
         }
 
+        public ActionResult AjustarTags()
+        {            
+            new FraseBusiness().AjustarTags();
+            return Content("foi");           
+        }
+
+
         public ActionResult AjustarAutores()
         {
             new RoboAutores().AjustarInformacoes();

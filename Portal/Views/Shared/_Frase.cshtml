@@ -16,13 +16,13 @@
     </nav>
 
     <blockquote cite="/autor/frases/@Model.Autor.Nome.NomeURL()">
-        <a href="/frase/@Model.Autor.Nome.NomeURL()/@Model.Id" title="@Model.Texto - @Model.Autor.Nome" itemprop="url">@Html.Raw(Model.Texto)</a>
+        <a href="/frase/@Model.Autor.Nome.NomeURL()/@Model.Id" title="@Model.Texto - Frase de @Model.Autor.Nome" itemprop="url">@Html.Raw(Model.Texto)</a>
     </blockquote>        
 
     <div class="informacoes">
         <div class="autor">
             <img src="@Model.Autor.ImagemPequena" title="@Model.Autor.Nome" />
-            <a href="/autor/frases/@Model.Autor.Nome.NomeURL()" title="Conheça as citações de  @Model.Autor.Nome" rel="author" itemscope="itemscope" itemtype="http://schema.org/Person" class="autor">@Model.Autor.Nome</a>            
+            <a href="/frases-de-@Model.Autor.Nome.NomeURL()" title="Veja as frases de  @Model.Autor.Nome" rel="author" itemscope="itemscope" itemtype="http://schema.org/Person" class="autor">@Model.Autor.Nome</a>            
         </div>
 
         <nav class="selos">
@@ -43,6 +43,13 @@
                 }
             </ul>
         </nav>
+
+        <ul class="tags">
+        @foreach (var tag in Model.Tags)
+        {
+            <li><a href="/tag/frases-de-@tag.Nome.NomeURL()" title="Veja mais frases de @tag.Nome">@tag.Nome</a></li>
+        }
+        </ul>
     </div>  
 
     <br style="clear:both; display:block;" />

@@ -1,5 +1,30 @@
 ﻿@model IList<Poetizando.Entidade.Frase>
+@{  var cont = 1; }
+    
 @foreach (var frase in Model)
 {
-	@Html.Partial("_Frase", frase ); 
-}    
+    if(cont == 5)
+    {   
+        <div style="margin:20px 0px; text-align:center;">
+            <script type="text/javascript">
+            <!--
+            google_ad_client = "ca-pub-8117876802922910";
+            /* Poetizando - Meio Frases */
+            google_ad_slot = "6586926222";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            //-->
+            </script>
+            <script type="text/javascript"
+            src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+        </div>
+        cont = 1;
+    }
+        
+	@Html.Partial("_Frase", frase);
+
+    cont++;
+        
+        
+} 

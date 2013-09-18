@@ -32,12 +32,14 @@
         <h3>Autores <a href="/autor/letra/a" class="botao" title="Veja todos os autores">+ autores</a></h3>
         <nav>
             <ul>
+
                 @foreach (var autor in (IList<AutorRankingDto>)ViewBag.TopAutores)
                 {
                 <li>
                     <img src="/content/img/autores/pequena/@autor.Imagem" title="@autor.Nome" />
                     <div class="dados">
-                        <h4><a href="/autor/frases/@autor.Nome.NomeURL()" title="Conheça as citações de @autor.Nome" rel="author" class="nome-autor">@autor.Nome</a></h4>
+                        @{ var url = String.Format("frases-de-{0}", autor.Nome.NomeURL()); }
+                        <h4><a href="@url" title="Conheça as frases de @autor.Nome" rel="author" class="nome-autor">@autor.Nome</a></h4>
                         <p>@autor.TotalDeFrases</p>
                     </div>
                 </li>
