@@ -48,23 +48,24 @@
         </nav>
 
         <br style="clear:both; display:block;" />
-
-        @*<a href="/contato/" title="Anuncie aqui!" class="anuncio"><img src="/content/img/anuncie.png" /></a>*@
-        <script type="text/javascript"><!--
-        google_ad_client = "ca-pub-8117876802922910";
-        /* Anuncio Quadrado Poetizando */
-        google_ad_slot = "5803259028";
-        google_ad_width = 200;
-        google_ad_height = 200;
-        //-->
-        </script>
-        <script type="text/javascript"
-        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-        </script>
+    </section>
+    
+    <section id="caixa-top-tags">
+        <h3>Frases bonitas</h3>
+        <nav>
+            <ul class="tags">
+                @foreach (var tag in (IList<Poetizando.Entidade.Tag>)ViewBag.Tags)
+                {
+                    <li><a href="/tag/frases-de-@tag.Nome.NomeURL()" title="Veja mais frases de @tag.Nome">Frases de @tag.Nome</a></li>
+                }
+            </ul>
+        </nav>
 
         <br style="clear:both; display:block;" />
     </section>
       
+    <br style="clear:both; display:block;" />
+
     <section id="caixa-videos">
         <h3>Vídeos</h3>
         <iframe width="295" height="230" src="@video.Url" frameborder="0" allowfullscreen></iframe>

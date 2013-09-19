@@ -387,9 +387,22 @@ footer nav#menu ul li{
 }
 
 
+#pagina-inicial #caixa-top-tags {
+    width:210px;
+    float:right;
+}
+
+#pagina-inicial #caixa-top-tags ul {
+    padding-top: 10px;
+}
+
+#pagina-inicial #caixa-top-tags ul li {
+    margin-bottom:5px;
+}
+
 #pagina-inicial #caixa-top-autores {
     width:210px;
-    height:408px;
+    height:360px;
     float:right;
 }
 
@@ -944,8 +957,25 @@ footer nav#menu ul li{
     
 }
 
-.frase ul.tags li {
-    display:inline; margin-left:5px;
+.frase ul.tags {
+    float: right;
+    margin-right:230px;
+    margin-top:2px;
+}
+
+ul.tags li {
+    float:left;
+    margin-left:5px;
+    background:#D64B56; padding:2px 10px;
+    margin-top:2px;
+    -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;
+}
+
+ul.tags li a {
+    color:#FFF;
+    font-family:Arial;
+    font-size:11px;
+    text-decoration:none;
 }
 
 /* =Utilidades

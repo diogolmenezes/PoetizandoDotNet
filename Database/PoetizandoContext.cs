@@ -49,7 +49,7 @@ namespace Poetizando.Database
                {
                    m.MapLeftKey("Frase_Id");
                    m.MapRightKey("Tag_Id");
-                   m.ToTable("tagfrase");
+                   m.ToTable("TagFrase");
                });
         }
     }

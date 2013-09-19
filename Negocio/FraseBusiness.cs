@@ -77,7 +77,7 @@ namespace Poetizando.Negocio
             return base.Filtrar().Where(x => x.Tags.Select(y=> y.Nome).Contains(tag)).OrderByDescending(x => x.DataCriacao).Skip(registroInicial).Take(total).ToList();
         }
 
-        public void AjustarTags()
+        public string AjustarTags()
         {
             var script = new StringBuilder();
 
@@ -114,6 +114,13 @@ namespace Poetizando.Negocio
                    x.Texto.Contains("revoluc") ||
                    x.Texto.Contains("luta") ||
                    x.Texto.Contains("ruins") ||
+                   x.Texto.Contains("sucesso") ||
+                   x.Texto.Contains("conhecimento") ||
+                   x.Texto.Contains("felicidade") ||
+                   x.Texto.Contains("otimista") ||
+                   x.Texto.Contains("pessimista") ||
+                   x.Texto.Contains("corajoso") ||
+                   x.Texto.Contains("oportunidade") ||
                    x.Texto.Contains("baixo") 
                )
                && !x.Tags.Select(y => y.Nome).Contains("Motivação")
@@ -192,10 +199,10 @@ namespace Poetizando.Negocio
 
             var saudade = base.Filtrar().Where(x =>
                (
-                   x.Texto.ToLower().Contains("aniversario") ||
-                   x.Texto.ToLower().Contains("aniversariante") ||
-                   x.Texto.ToLower().Contains("parabéns") ||
-                   x.Texto.ToLower().Contains("parabens")
+                   x.Texto.ToLower().Contains("distância") ||
+                   x.Texto.ToLower().Contains("distancia") ||
+                   x.Texto.ToLower().Contains("saudade") ||
+                   x.Texto.ToLower().Contains("tempo apaga")
                )
                && !x.Tags.Select(y => y.Nome).Contains("saudade")
            );
@@ -217,9 +224,9 @@ namespace Poetizando.Negocio
             foreach (var frase in natal)
                 script.AppendLine(String.Format("INSERT INTO TagFrase VALUES ('{0}', '{1}', 'd8f0dae6-943f-11e2-9b90-b8ac6fe6ba58');", Guid.NewGuid().ToString().Replace("-", ""), frase.Id));
 
-                     
 
 
+            return script.ToString();
         }
     }
 }

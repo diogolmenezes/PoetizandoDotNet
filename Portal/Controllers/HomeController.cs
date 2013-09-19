@@ -40,6 +40,7 @@ namespace Poetizando.Portal.Controllers
             ViewBag.PaginaInicial    = "home";
             ViewBag.Video            = new VideoBusiness().CarregarDestaque();
             ViewBag.Texto            = new TextoBusiness().CarregarDestaque();
+            ViewBag.Tags             = new TagBusiness().ListarTopTags();
 
             return View(frases);
         }
@@ -57,8 +58,8 @@ namespace Poetizando.Portal.Controllers
 
         public ActionResult AjustarTags()
         {            
-            new FraseBusiness().AjustarTags();
-            return Content("foi");           
+            var sql = new FraseBusiness().AjustarTags();
+            return Content(sql);           
         }
 
 
