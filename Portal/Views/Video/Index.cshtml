@@ -1,7 +1,10 @@
 ﻿@model IList<Poetizando.Entidade.Video>
 @using Poetizando.Negocio
-@{ ViewBag.FbTitle = "Vídeos"; }
-@{ ViewBag.Keywords = "video, filme, curta metragem, curta, videos, motivação, inspiração, sucesso"; }
+@{ 
+    ViewBag.FbTitle = "Vídeos motivacionais no Poetizando"; 
+    ViewBag.Keywords = "video, filme, curta metragem, curta, videos, motivação, inspiração, sucesso";
+    ViewBag.FbDescription = "Motive-se vendo diversos vídeos motivacionais e emocionantes aqui no Poetizando.";   
+}
 @{ var video = (Poetizando.Entidade.Video)ViewBag.Video; }
 
 <section id="pagina-videos">   

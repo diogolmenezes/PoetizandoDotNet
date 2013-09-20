@@ -1,5 +1,8 @@
 ﻿@using Poetizando.Negocio
-@{ ViewBag.FbTitle = "Autores de A a Z"; }
+@{ 
+    ViewBag.FbTitle = (String.IsNullOrEmpty(ViewBag.Title)) ? "Autores de A a Z" : ViewBag.Title;   
+    ViewBag.FbDescription = (String.IsNullOrEmpty(ViewBag.Description)) ? "Conheça mensagens, textos, poemas, citações e frases de diversos autores de A a Z." : ViewBag.Description;
+}
 @model IList<Poetizando.Entidade.Autor>
 <section id="pagina-autor">
     <nav class="breadcrumb">
@@ -10,7 +13,14 @@
         </ul>
     </nav>
 
-    <h2>autores por letra</h2>                
+    @if(!String.IsNullOrEmpty(ViewBag.SubTitulo))
+    {
+        <h2>@Html.Raw(ViewBag.SubTitulo)</h2>
+    }
+    else
+    {
+        <h2>Autores por Letra</h2>
+    }
 
     <nav class="lista-letras">
         <ul>
@@ -43,14 +53,17 @@
         </ul>
     </nav>
     
+
+    
+
     @if (Model != null)
     {
-       <nav class="lista-autores">
+       <nav class="lista-autores">           
             <ul class="@(Model.Count > 5 ? "quebrar-em-colunas" : "")">
                 @foreach (var autor in Model)
                 {
                     
-                <li class="@(autor.Destaque ? "destaque" : "")"><a href="/autor/frases/@autor.Nome.NomeURL()" title="conheça as frases de @autor.Nome.NomeURL()" rel="author" class="autor"><img src="@autor.ImagemPequena" alt="@autor.Nome" title="@autor.Nome" />@autor.Nome</a></li>
+                <li class="@(autor.Destaque ? "destaque" : "")"><a href="/autor/frases/@autor.Nome.NomeURL()" title="Conheça as citações e frases de @autor.Nome.NomeURL()" rel="author" class="autor"><img src="@autor.ImagemPequena" alt="@autor.Nome" title="@autor.Nome" />@autor.Nome</a></li>
                 }
             </ul>
         </nav>

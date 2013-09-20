@@ -1,7 +1,7 @@
 ﻿@model Poetizando.Entidade.Video
 @using Poetizando.Negocio
 @{ 
-    ViewBag.FbTitle = Model.Titulo;
+    ViewBag.FbTitle = "Vídeo " + Model.Titulo;
     ViewBag.FbImage = @Model.Url.Replace("http://www.youtube.com/embed/", "http://img.youtube.com/vi/") + "/0.jpg?t=12345";
     ViewBag.FbDescription = Model.Descricao;
     ViewBag.Keywords = "video, filme, curta metragem, curta, " + Model.Titulo + "," + Model.Descricao;     

@@ -1,7 +1,7 @@
 ﻿@model Poetizando.Entidade.Frase
 @using Poetizando.Negocio
 @{ 
-    ViewBag.FbTitle   = Model.Autor.Nome + ": " + Model.Texto;
+    ViewBag.FbTitle   = "Frase de " + Model.Autor.Nome + ": " + Model.Texto;
     ViewBag.Keywords = "frase, frases, citações, poesia, poesias, poema, poemas, texto, textos, citacao, verso, versos, palavra, palavras, " + Model.Autor.Nome + "," + Model.Texto;
     var imagem = (Poetizando.Entidade.Imagem)ViewBag.Imagem;
 
@@ -9,7 +9,7 @@
         ViewBag.FbImage = "http://poetizando.com.br" + imagem.ImagemGrande + "?t=123456?";
     }
 
-    ViewBag.FbDescription = Model.Autor.Nome + ": " + Model.Texto;
+    ViewBag.FbDescription = "Frase de " + Model.Autor.Nome + ": " + Model.Texto + " - Veja essa e muitas outras frases de " + Model.Autor.Nome + " aqui no Poetizando";
 
     var opcao = @ViewBag.Opcao + "-selecionado";
 }

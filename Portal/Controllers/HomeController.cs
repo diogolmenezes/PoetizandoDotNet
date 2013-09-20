@@ -113,7 +113,7 @@ namespace Poetizando.Portal.Controllers
             {
                 sitemap.Add(new Location()
                 {
-                    Url = String.Format("{0}/autor/frases/{1}", dominio, autor.Nome.NomeURL()),
+                    Url = String.Format("{0}/frases-de-{1}", dominio, autor.Nome.NomeURL()),
                     //LastModified = DateTime.UtcNow.AddDays(-1),
                     ChangeFrequency = Location.eChangeFrequency.daily,
                     Priority = 0.8D
@@ -127,6 +127,19 @@ namespace Poetizando.Portal.Controllers
                 sitemap.Add(new Location()
                 {
                     Url = String.Format("{0}/frase/{1}/{2}", dominio, frase.Autor.Nome.NomeURL(), frase.Id),
+                    //LastModified = DateTime.UtcNow.AddDays(-1),
+                    ChangeFrequency = Location.eChangeFrequency.daily,
+                    Priority = 0.8D
+                });
+            }
+
+            // cadastrando as tags
+            var tags = new TagBusiness().ListarTopTags();
+            foreach (var tag in tags)
+            {
+                sitemap.Add(new Location()
+                {
+                    Url = String.Format("{0}/tag/frases-de-{1}", dominio, tag.Nome.NomeURL()),
                     //LastModified = DateTime.UtcNow.AddDays(-1),
                     ChangeFrequency = Location.eChangeFrequency.daily,
                     Priority = 0.8D
@@ -185,7 +198,12 @@ namespace Poetizando.Portal.Controllers
                 });
             }        
 
-            return new XmlResult(sitemap);
+            var result = new XmlResult(sitemap);
+
+            result.ToFile();
+
+            return result;
+
         }        
     }
 
@@ -207,6 +225,14 @@ namespace Poetizando.Portal.Controllers
             response.ContentType = "text/xml";
             var serializer = new XmlSerializer(Data.GetType());
             serializer.Serialize(response.OutputStream, Data);
+        }
+
+        public void ToFile()
+        {
+            var serializer = new XmlSerializer(Data.GetType());
+            StreamWriter sw = new StreamWriter(@"C:\Users\Diogo\Desktop\sitemap.xml");
+            serializer.Serialize(sw, Data);
+            sw.Close();
         }
     }
 }

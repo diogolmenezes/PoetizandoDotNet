@@ -26,7 +26,9 @@ namespace Poetizando.Portal.Controllers
         public ActionResult Letra(string letra)
         {
             ViewBag.Letra = letra.ToLower();
-            ViewBag.SubTitulo = string.Format("Autores com a letra \"<strong>{0}</strong>\"", letra.ToUpper());
+            ViewBag.Title = string.Format("Autores com a letra {0}", letra.ToUpper());
+            ViewBag.SubTitulo = string.Format("Autores com \"<strong>{0}</strong>\"", letra.ToUpper());
+            ViewBag.Description = string.Format("Conheça mensagens, textos, poemas, citações e frases de diversos autores que comecam com a letra {0}.", letra.ToUpper());
             var autores = new AutorBusiness().ListarPelaPrimeiraLetra(letra);            
             return View("Index", autores);
         }
