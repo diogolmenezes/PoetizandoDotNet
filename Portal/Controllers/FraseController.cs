@@ -144,18 +144,30 @@ namespace Poetizando.Portal.Controllers
 
 
                 var SQL = new StringBuilder();
-
+                var guidFrase = Guid.NewGuid().ToString().Replace("-", "");
                 if (String.IsNullOrEmpty(form["txtOutroAutor"]))
-                    SQL.AppendLine(String.Format("INSERT INTO Frase VALUES ('{0}','{1}',1,now(),'{2}', 0, 0, null, null);", Guid.NewGuid().ToString().Replace("-", ""), form["Texto"], form["ddlAutor"]));
+                    SQL.AppendLine(String.Format("INSERT INTO Frase VALUES ('{0}','{1}',1,now(),'{2}', 0, 0, null, null);", guidFrase, form["Texto"], form["ddlAutor"]));
                 else
                 {
                     var guidAutor = Guid.NewGuid().ToString().Replace("-", "");
                     SQL.AppendLine(String.Format("INSERT INTO Autor (Id, Nome, Destaque, Ativo) VALUES ('{0}','{1}', 0, 1);", guidAutor, form["txtOutroAutor"]));
-                    SQL.AppendLine(String.Format("INSERT INTO Frase VALUES ('{0}','{1}',1,now(),'{2}', 0, 0, null, null);", Guid.NewGuid().ToString().Replace("-", ""), form["Texto"], guidAutor));
+                    SQL.AppendLine(String.Format("INSERT INTO Frase VALUES ('{0}','{1}',1,now(),'{2}', 0, 0, null, null);", guidFrase, form["Texto"], guidAutor));
                 }
+
+                if (!String.IsNullOrEmpty(form["ddlCategoria"]))
+                    SQL.AppendLine(String.Format("INSERT INTO TagFrase (Id, Frase_Id, Tag_Id) VALUES ('{0}','{1}', '{2}');", Guid.NewGuid().ToString().Replace("-", ""), guidFrase, form["ddlCategoria"]));
+
+
+                SQL.AppendLine("<br/>");
+                SQL.AppendLine("<br/>");
+                SQL.AppendLine(String.Format("INSERT INTO Imagem (Id, Nome, DataCriacao, Ativo, Frase_Id) VALUES ('{0}', '{1}.png', '{2}', '1', '{3}');", guidFrase, guidFrase, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), guidFrase));
+                SQL.AppendLine("UPDATE Frase INNER JOIN Imagem ON Frase.Id = Imagem.Frase_Id SET Frase.DataCriacao = Imagem.DataCriacao, EstaNaFanPage = 1;");
+                SQL.AppendLine("<br/>");
+                SQL.AppendLine("<br/>");
 
                 msg.AppendLine(String.Format("<br/>SQL: {0}", SQL.ToString()));
 
+                
 
                 WebMail.Send(
                         email,
